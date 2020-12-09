@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script src="jspsych/jspsych.js"></script>
+   <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+    <link href="jspsych/css/jspsych.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+<script>
+    let timeline = [];
+
+    let welcomeText =
+    `<img src='zi-logo-rgb.png' width='350'></img>
+    <p>Welcome to our experiment.</p>
+    <p><b>
+    Whilst completing the experiment, please DO NOT do the following:</b>
+    </p><p>DO NOT resize your browser window;</p>
+    <p>DO NOT close or refresh your browser window</p>
+    <p>Thank you for your interest in taking part.</p>
+    <p>Please press the button below to begin. </p>"`
+
+    let welcome = {
+        type: "html-button-response",
+        stimulus: welcomeText,
+        choices: ['Click here to continue'],
+        margin_vertical: '100px',
+        on_finish: function() {
+            window.location.assign('discounting_try1.html'); 
+        }
+      };
+
+    timeline.push(welcome);
+
+    /* start the experiment */
+    jsPsych.init({
+    timeline: timeline,
+    });
+
+</script>
+</body>
+</html>
