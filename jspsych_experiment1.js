@@ -1,5 +1,5 @@
 // path to testfile.json
-let dataPath = "testfile.json";
+let dataPath = "testfiles/testfile.json";
 
 // run experiment on button click
 document.querySelector('#start').addEventListener(
@@ -113,7 +113,8 @@ function run2FC(trialTimeline) {
     jsPsych.init({
         timeline: timeline,
         on_finish: function(){
-            jsPsych.data.displayData('json');
+            window.location.assign('discounting_part2.html');
+            //jsPsych.data.displayData('json');
             saveData(jsPsych.data.get().csv())
         },
         on_close: function(){
@@ -124,7 +125,7 @@ function run2FC(trialTimeline) {
 
 function saveData(data) {
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'saveData.php');
+    xhr.open('POST', 'web_API/saveExp1.php');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(data));
 };
