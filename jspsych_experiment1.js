@@ -11,10 +11,10 @@ document.querySelector('#start').addEventListener(
 // function to run experiment with specified json file
 function runExperiment(dataPath) {
     console.log(dataPath);
-    console.log(localStorage.getItem('prolific_id'));
+    console.log(sessionStorage.getItem('prolific_id'));
 
     // get participant ID from local storage
-    let prolific_id = localStorage.getItem('prolific_id');
+    let prolific_id = sessionStorage.getItem('prolific_id');
     
     // AJAX get request
     let xhr = new XMLHttpRequest();
@@ -131,7 +131,7 @@ function saveData(data) {
     // creates object with prolific id and experiment data
     // sends json-object to php for storage
     let params = {
-        "prolific_id": localStorage.getItem('prolific_id'),
+        "prolific_id": sessionStorage.getItem('prolific_id'),
         "data": data
     };    
     let xhr = new XMLHttpRequest();

@@ -39,7 +39,7 @@
       html: '<div class="questions"></p><p><input type="text" id="prolific_id" required="required" name="prolific_id"></p></div>',
       on_finish: function(data) {
         var prolific = JSON.parse(data.responses)["prolific_id"];
-        localStorage.setItem('prolific_id', prolific);
+        sessionStorage.setItem('prolific_id', prolific);
         window.location.assign('discounting_part1.html'); 
       }
   };
