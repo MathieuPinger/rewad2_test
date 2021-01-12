@@ -3,12 +3,11 @@
 
 # import libraries
 import numpy as np                          #scientific computing
-import scipy as sp
 import xlsxwriter
 from scipy import optimize
-from IPython.core.debugger import set_trace #debugging
 import pandas as pd                         #import data
-import math
+import json
+import sys
 
 
 # define necessary functions
@@ -125,28 +124,81 @@ def generateParadigm(delays, r2s, pars):
     return delay, r1, r2, p1
 
 # input and output paths
-id = "blubb"
+id = sys.argv[1]
 rootpath = "../data/"
 inputfile= f"{id}_exp1.csv"
 outputfile=f"{id}_params_exp2.json"
-outputfile2=f"{id}_params_exp2_z.json"
+outputfile2=f"{id}_params_exp2_z.xlsx"
 
 # input file
 filein= rootpath + inputfile
+
+# output files
+outputjson= rootpath + outputfile
+outputxlsx= rootpath + outputfile2
 
 # load data to pandas then convert to numpy arrays
 datain = pd.read_csv(filein)
 datain = datain[["immOpt", "delOpt", "delay", "choice"]]
 
+# drop missing values
+datain = datain.dropna()
+
+# replace missing values with zero
+#datain = datain.fillna(0)
+
 # choice: replace "immediate" with 1 and "delayed" with 2
-datain["choice_relabel"] = datain["choice"].replace({"immediate": 1, "delayed": 2})
+datain["choice_relabel"] = datain["choice"].replace({"immediate": 1,
+                                                     "delayed": 2})
 
 # create input arrays for functions
 r1 = datain[["immOpt"]].to_numpy()
 r2 = datain[["delOpt"]].to_numpy()
 delay = datain[["delay"]].to_numpy()
-a = datain[["choice_relabel"]].to_numpy().astype(int)
+a = datain[["choice_relabel"]].to_numpy()
 
 # optimize model and return best param estimates
 beta, kappa, LL=optimizeModel(delay, r1, r2, a)
 print("inferred params: beta="+np.str(beta)+ ", kappa="+np.str(kappa)+ ", logL=" + np.str(LL))
+
+# generate paradigm B based on these params and given delays and rewards
+#(note: these also define the # of trials)
+pars=[kappa, beta]      
+r2s=[1, 5, 10, 15, 20]          # define delayed rewards used for task B
+delays=[1, 2, 3, 5, 10, 20, 50] # define delays used for task B
+delay_B, r1_B, r2_B, p_imm = generateParadigm(delays, r2s, pars)
+
+
+# generate id for trials
+trials_id = list(range(1, len(delay_B)+1))
+
+# pandas dataframe to json
+delay_B = delay_B.flatten().tolist()
+r1_B = r1_B.flatten().tolist()
+r2_B = r2_B.flatten().tolist()
+p_imm = p_imm.flatten().tolist()
+
+outdata_df = pd.DataFrame(
+    {'id': trials_id,
+     'immOpt': r1_B,
+     'delOpt': r2_B,
+     'delay': delay_B})
+
+outdata = outdata_df.to_json(orient = "index")
+outdata = json.loads(outdata)
+
+# Open a json writer, and use the json.dumps()  
+# function to dump data 
+with open(outputjson, 'w', encoding='utf-8') as jsonf: 
+    jsonf.write(json.dumps(outdata, indent=4)) 
+    json.dumps(outdata, indent=4)  
+
+# Write CSV with added probabilites
+wb = xlsxwriter.Workbook(outputxlsx)
+ws = wb.add_worksheet('my sheet')
+ws.write_row(0, 0, ['immOpt', 'delOpt', 'delay', 'p_imm'])
+
+for i in range(len(delay_B)):
+    ws.write_row(i+1, 0, [r1_B[i],r2_B[i], delay_B[i], p_imm[i]])
+
+wb.close()
