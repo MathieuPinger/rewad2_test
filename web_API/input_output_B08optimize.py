@@ -1,4 +1,5 @@
-#!C:/Local/python.exe
+#!/usr/bin/env python3
+
 # Test script: integrate bevavioral data from website to optimization
 
 # import libraries
@@ -9,6 +10,7 @@ import pandas as pd                         #import data
 import json
 import sys
 
+id = sys.argv[1]
 
 # define necessary functions
 #------------------------------------------------------------------------------
@@ -124,7 +126,6 @@ def generateParadigm(delays, r2s, pars):
     return delay, r1, r2, p1
 
 # input and output paths
-id = sys.argv[1]
 rootpath = "../data/"
 inputfile= f"{id}_exp1.csv"
 outputfile=f"{id}_params_exp2.json"

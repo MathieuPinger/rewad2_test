@@ -8,6 +8,6 @@ $name = "../data/".$id."_exp1.csv";
 // write the file to disk
 file_put_contents($name, $save_data);
 // sleep(10);
-$pythonstuff = exec("python calculations.py $id");
+$pythonstuff = exec("python input_output_B08optimize.py $id");
 echo $pythonstuff;
 ?>
