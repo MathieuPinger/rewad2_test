@@ -1,12 +1,20 @@
-#!C:/Local/python.exe
+#!C:/Anaconda/python.exe
 
 import sys
 import csv
 import json
+import numpy as np                          #scientific computing
+import xlsxwriter
+from scipy import optimize
+import pandas as pd                         #import data
+import json
+import sys
 
 id = sys.argv[1]
 exp1_path = f"../data/{id}_exp1.csv"
 print(exp1_path)
+print(sys.modules.keys())
+
 
 # Just to confirm that data is loaded successfully
 # with open(path) as expdata:

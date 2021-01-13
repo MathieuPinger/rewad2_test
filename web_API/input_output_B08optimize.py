@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
+#!C:/Anaconda/python.exe
 
 # Test script: integrate bevavioral data from website to optimization
-
+#def main(id):
 # import libraries
 import numpy as np                          #scientific computing
 import xlsxwriter
@@ -11,6 +11,7 @@ import json
 import sys
 
 id = sys.argv[1]
+#id = "qwertzy"
 
 # define necessary functions
 #------------------------------------------------------------------------------
@@ -27,7 +28,7 @@ def optimizeModel(delay, r1, r2, a):
         betainit= np.random.uniform(low=0.0, high=100.0, size=None)
         kappainit= np.random.uniform(low=0.0, high=10.0, size=None)
         pars0=[betainit, kappainit]
-               
+            
         minimize_method='L-BFGS-B' #optimizatin method used
 
         ##optimization without bound
@@ -40,11 +41,11 @@ def optimizeModel(delay, r1, r2, a):
 
         bnds = ((0, 100), (0, 10))  #upper and lower bounds used for bounded optimization
         result=optimize.minimize(fun=getNegLikelihoodHyperbolic, 
-                                 x0=pars0, 
-                                 args=(a,r1,r2,delay), 
-                                 method = minimize_method, 
-                                 bounds = bnds,
-                                 options={'eps': eps}) 
+                                x0=pars0, 
+                                args=(a,r1,r2,delay), 
+                                method = minimize_method, 
+                                bounds = bnds,
+                                options={'eps': eps}) 
     
         pars[i,:]=result.x
         LL[i]=-getNegLikelihoodHyperbolic(pars[i,:], a, r1, r2, delay)
@@ -102,7 +103,7 @@ def generateParadigm(delays, r2s, pars):
     kappa, beta=pars
 
     prob_imm=[.3, .5, .7] #generated probs
-       
+    
     X, Y, Z=np.meshgrid(delays, r2s, prob_imm)
     X=X.flatten()
     Y=Y.flatten()
@@ -150,7 +151,7 @@ datain = datain.dropna()
 
 # choice: replace "immediate" with 1 and "delayed" with 2
 datain["choice_relabel"] = datain["choice"].replace({"immediate": 1,
-                                                     "delayed": 2})
+                                                    "delayed": 2})
 
 # create input arrays for functions
 r1 = datain[["immOpt"]].to_numpy()
@@ -181,9 +182,9 @@ p_imm = p_imm.flatten().tolist()
 
 outdata_df = pd.DataFrame(
     {'id': trials_id,
-     'immOpt': r1_B,
-     'delOpt': r2_B,
-     'delay': delay_B})
+    'immOpt': r1_B,
+    'delOpt': r2_B,
+    'delay': delay_B})
 
 outdata = outdata_df.to_json(orient = "index")
 outdata = json.loads(outdata)
@@ -203,3 +204,17 @@ for i in range(len(delay_B)):
     ws.write_row(i+1, 0, [r1_B[i],r2_B[i], delay_B[i], p_imm[i]])
 
 wb.close()
+
+# import sys
+# try:
+#     with open('started.log', 'w') as f:
+#         f.write(str(sys.argv))
+
+
+#     main(sys.argv[1])
+
+#     with open('finished.log', 'w') as f:
+#         f.write(sys.modules.keys())
+# except Exception as e:
+#     with open('err.log', 'w') as f:
+#         f.write(str(e) + repr(e))
