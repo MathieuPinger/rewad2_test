@@ -64,12 +64,12 @@ function createTimeline(trialArray) {
             </p>
             <div class='table'>
             <div class='row'>
-            <div id = 'option'><center><font color='green'>
+            <div class = 'option' id='leftOption'><center><font color='green'>
                 ${trial.immOpt}
             <br>
                 Today
             </font></center></div>
-            <div id = 'option'><center><font color='green'>
+            <div class = 'option' id='rightOption'><center><font color='green'>
                 ${trial.delOpt}
             <br>
                 in ${trial.delay} days
@@ -88,26 +88,110 @@ function createTimeline(trialArray) {
 
 function run2FC(trialTimeline) {
     // input: jsPsych timeline (array)
+    let timeline = [];
+    console.log("This is the trialTimeline:");
+    console.log(trialTimeline);
+    let trialProcedure = {
+        timeline: [
+            testBlock = {
+                type: "html-keyboard-response",
+                stimulus: jsPsych.timelineVariable('stimulus'),
+                data: jsPsych.timelineVariable('data'),
+                choices: ['q', 'p'],
+                stimulus_duration: 2000,
+                trial_duration: 2000,
+                on_finish: function(data) {
+                    delete data.stimulus; // not needed in csv data
+                    // recode button press for csv
+                    if(data.key_press == 80){
+                    data.choice = "delayed";
+                    } else if(data.key_press == 81){
+                    data.choice = "immediate";
+                    }
+                }
+            },
+            feedback = {
+                type: 'html-keyboard-response',
+                stimulus: function(){
+                    lastChoice = jsPsych.data.getLastTrialData().values()[0].choice;
+                    lastImmOpt = jsPsych.data.getLastTrialData().values()[0].immOpt;
+                    lastDelOpt = jsPsych.data.getLastTrialData().values()[0].delOpt;
+                    lastDelay = jsPsych.data.getLastTrialData().values()[0].delay;
 
-    const timeline = [];
-
-    let testBlock = {
-        type: "html-keyboard-response",
-        timeline: trialTimeline,
-        choices: ['q', 'p'],
-        stimulus_duration: 2000,
-        trial_duration: 2000,
-        on_finish: function(data) {
-            delete data.stimulus;
-            if(data.key_press == 80){
-            data.choice = "delayed";
-          } else if(data.key_press == 81){
-            data.choice = "immediate";
-          }
-        }
-
+                    if(lastChoice == "immediate"){
+                        trialFeedback = `<div class = centerbox id='container'>
+                        <p class = center-block-text>
+                            Please select the option that you would prefer pressing
+                            <strong>'q'</strong> for left
+                            <strong>'p'</strong> for right:
+                        </p>
+                        <div class='table'>
+                        <div class='row'>
+                        <div class = 'option' id='leftOption' style="border: thick solid  #008000;"><center><font color='green'>
+                            ${lastImmOpt}
+                        <br>
+                            Today
+                        </font></center></div>
+                        <div class = 'option' id='rightOption'><center><font color='green'>
+                            ${lastDelOpt}
+                        <br>
+                            in ${lastDelay} days
+                        </font></center></div></div></div></div>`;
+                        return trialFeedback
+                    } else if(lastChoice == "delayed") {
+                        trialFeedback = `<div class = centerbox id='container'>
+                        <p class = center-block-text>
+                            Please select the option that you would prefer pressing
+                            <strong>'q'</strong> for left
+                            <strong>'p'</strong> for right:
+                        </p>
+                        <div class='table'>
+                        <div class='row'>
+                        <div class = 'option' id='leftOption'><center><font color='green'>
+                            ${lastImmOpt}
+                        <br>
+                            Today
+                        </font></center></div>
+                        <div class = 'option' id='rightOption' style="border: thick solid  #008000;"><center><font color='green'>
+                            ${lastDelOpt}
+                        <br>
+                            in ${lastDelay} days
+                        </font></center></div></div></div></div>`;
+                        return trialFeedback
+                    } else {
+                        trialFeedback = `<div class = centerbox id='container'>
+                        <p class = center-block-text style="color:red;">
+                            Please select an option by pressing Q or P!
+                        </p>`;
+                        return trialFeedback
+                    }
+                },
+                choices: jsPsych.NO_KEYS,
+                trial_duration: 1000,
+            }
+        ],
+        timeline_variables: trialTimeline
     }
-    timeline.push(testBlock);
+    timeline.push(trialProcedure);
+
+    // let timeline = [];
+    // let testBlock = {
+    //     type: "html-keyboard-response",
+    //     timeline: trialTimeline,
+    //     choices: ['q', 'p'],
+    //     stimulus_duration: 2000,
+    //     trial_duration: 2000,
+    //     on_finish: function(data) {
+    //         delete data.stimulus;
+    //         if(data.key_press == 80){
+    //         data.choice = "delayed";
+    //       } else if(data.key_press == 81){
+    //         data.choice = "immediate";
+    //       }
+    //     }
+
+    // }
+    // timeline.push(testBlock);
 
     /* needed:
     post_trial_gap
@@ -118,7 +202,7 @@ function run2FC(trialTimeline) {
         timeline: timeline,
         on_finish: function() {
             saveData(jsPsych.data.get().csv())
-            window.location.assign('questionnaires.html');
+            //window.location.assign('questionnaires.html');
             //jsPsych.data.displayData('json');
         },
         on_close: function(){
