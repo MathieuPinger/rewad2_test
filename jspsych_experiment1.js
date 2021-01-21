@@ -29,6 +29,12 @@ function runExperiment(dataPath) {
         let trialList = Object.values(trialObj);
         console.log(trialList);
 
+        // round trial Options to 2 digits
+        trialList.forEach(trial => {
+            trial['immOpt'] = parseFloat(trial['immOpt']).toFixed(2);
+            trial['delOpt'] = parseFloat(trial['delOpt']).toFixed(2);
+        });
+
         // TESTING: only use first 5 trials
         trialList = trialList.slice(0, 5);
         console.log(trialList);
@@ -36,6 +42,9 @@ function runExperiment(dataPath) {
         // create jsPsych timeline
         let trialTimeline = createTimeline(trialList);
         console.log(trialTimeline);
+        // round trial options
+
+
 
         // run 2 forced choice task
         run2FC(trialTimeline);
@@ -170,7 +179,8 @@ function run2FC(trialTimeline) {
                 trial_duration: 1000,
             }
         ],
-        timeline_variables: trialTimeline
+        timeline_variables: trialTimeline,
+        randomize_order: true
     }
     timeline.push(trialProcedure);
 
