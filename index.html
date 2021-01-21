@@ -36,11 +36,13 @@
     let prolific_id = {
       type: 'survey-html-form',
       preamble: '<p><b>Please enter your Prolific (or test) ID:</b></p>',
-      html: '<div class="questions"></p><p><input type="text" id="prolific_id" required="required" name="prolific_id"></p></div>',
+      html: `<div class="questions">
+        </p><p><input type="text" id="prolific_id" required="required" name="prolific_id"></p></div>`
       on_finish: function(data) {
         var prolific = JSON.parse(data.responses)["prolific_id"];
         sessionStorage.setItem('prolific_id', prolific);
-        window.location.assign('discounting_part1.html'); 
+        findFile(prolific);
+        //window.location.assign('discounting_part1.html'); 
       }
   };
 
@@ -50,6 +52,27 @@
     jsPsych.init({
         timeline: timeline,
     });
+
+function findFile(id) {
+    let params = {
+        "prolific_id": id
+    };    
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'web_API/checkID.php');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    
+    xhr.onload = function(){
+        response = this.responseText;
+        if(response === '0') {
+            window.location.assign('discounting_part1.html');
+        } else {
+            message = document.createElement("P");
+            message.innerHTML = "<p>ID already used. Thank you for participating.</p>";
+        }
+    };
+
+    xhr.send(JSON.stringify(params));
+}
 
 </script>
 </body>

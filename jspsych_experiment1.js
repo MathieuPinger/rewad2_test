@@ -64,25 +64,7 @@ function createTimeline(trialArray) {
     // add trials to timeline: loop through trialList
     trialArray.map(trial => {
         let trialData = {
-            stimulus:
-            `<div class = centerbox id='container'>
-            <p class = center-block-text>
-                Please select the option that you would prefer pressing
-                <strong>'q'</strong> for left
-                <strong>'p'</strong> for right:
-            </p>
-            <div class='table'>
-            <div class='row'>
-            <div class = 'option' id='leftOption'><center><font color='green'>
-                ${trial.immOpt}
-            <br>
-                Today
-            </font></center></div>
-            <div class = 'option' id='rightOption'><center><font color='green'>
-                ${trial.delOpt}
-            <br>
-                in ${trial.delay} days
-            </font></center></div></div></div></div>`,
+            stimulus: constructStim(trial.immOpt, trial.delOpt, trial.delay),
 
             data: {
                 immOpt: trial.immOpt,
@@ -128,45 +110,15 @@ function run2FC(trialTimeline) {
                     lastDelay = jsPsych.data.getLastTrialData().values()[0].delay;
 
                     if(lastChoice == "immediate"){
-                        trialFeedback = `<div class = centerbox id='container'>
-                        <p class = center-block-text>
-                            Please select the option that you would prefer pressing
-                            <strong>'q'</strong> for left
-                            <strong>'p'</strong> for right:
-                        </p>
-                        <div class='table'>
-                        <div class='row'>
-                        <div class = 'option' id='leftOption' style="border: thick solid  #008000;"><center><font color='green'>
-                            ${lastImmOpt}
-                        <br>
-                            Today
-                        </font></center></div>
-                        <div class = 'option' id='rightOption'><center><font color='green'>
-                            ${lastDelOpt}
-                        <br>
-                            in ${lastDelay} days
-                        </font></center></div></div></div></div>`;
+                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                            leftStyle = feedbackStyle);
                         return trialFeedback
+
                     } else if(lastChoice == "delayed") {
-                        trialFeedback = `<div class = centerbox id='container'>
-                        <p class = center-block-text>
-                            Please select the option that you would prefer pressing
-                            <strong>'q'</strong> for left
-                            <strong>'p'</strong> for right:
-                        </p>
-                        <div class='table'>
-                        <div class='row'>
-                        <div class = 'option' id='leftOption'><center><font color='green'>
-                            ${lastImmOpt}
-                        <br>
-                            Today
-                        </font></center></div>
-                        <div class = 'option' id='rightOption' style="border: thick solid  #008000;"><center><font color='green'>
-                            ${lastDelOpt}
-                        <br>
-                            in ${lastDelay} days
-                        </font></center></div></div></div></div>`;
+                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                            leftStyle = undefined, rightStyle = feedbackStyle);
                         return trialFeedback
+
                     } else {
                         trialFeedback = `<div class = centerbox id='container'>
                         <p class = center-block-text style="color:red;">
@@ -177,36 +129,15 @@ function run2FC(trialTimeline) {
                 },
                 choices: jsPsych.NO_KEYS,
                 trial_duration: 1000,
+                on_finish: function(data) {
+                    delete data.stimulus; // not needed in csv data
+                }
             }
         ],
         timeline_variables: trialTimeline,
         randomize_order: true
     }
     timeline.push(trialProcedure);
-
-    // let timeline = [];
-    // let testBlock = {
-    //     type: "html-keyboard-response",
-    //     timeline: trialTimeline,
-    //     choices: ['q', 'p'],
-    //     stimulus_duration: 2000,
-    //     trial_duration: 2000,
-    //     on_finish: function(data) {
-    //         delete data.stimulus;
-    //         if(data.key_press == 80){
-    //         data.choice = "delayed";
-    //       } else if(data.key_press == 81){
-    //         data.choice = "immediate";
-    //       }
-    //     }
-
-    // }
-    // timeline.push(testBlock);
-
-    /* needed:
-    post_trial_gap
-    on_finish (highlight choice etc)
-    */
 
     jsPsych.init({
         timeline: timeline,
@@ -238,3 +169,28 @@ function saveData(data) {
 
     xhr.send(JSON.stringify(params));
 };
+
+// constructor function for html stimulus
+let feedbackStyle = 'style="border: thick solid  #008000;"';
+function constructStim(leftOpt, rightOpt, delay, leftStyle, rightStyle) {
+    let stimString = `<div class = centerbox id='container'>
+    <p class = center-block-text>
+        Please select the option that you would prefer pressing
+        <strong>'q'</strong> for left
+        <strong>'p'</strong> for right:
+    </p>
+    <div class='table'>
+    <div class='row'>
+    <div class = 'option' id='leftOption' ${leftStyle || null}><center><font color='green'>
+        ${leftOpt}
+    <br>
+        Today
+    </font></center></div>
+    <div class = 'option' id='rightOption' ${rightStyle || null}><center><font color='green'>
+        ${rightOpt}
+    <br>
+        in ${delay} days
+    </font></center></div></div></div></div>`;
+        return stimString;
+        
+    }
