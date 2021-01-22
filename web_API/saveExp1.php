@@ -9,6 +9,6 @@ $name = "../data/".$id."_exp1.csv";
 file_put_contents($name, $save_data);
 // sleep(10);
 file_put_contents("log.txt", "test");
-$pythonstuff = shell_exec("python input_output_B08optimize.py $id");
+$pythonstuff = shell_exec('python input_output_B08optimize.py '.escapeshellarg($id));
 echo $pythonstuff;
 ?>

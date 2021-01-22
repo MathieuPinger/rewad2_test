@@ -1,3 +1,13 @@
+// redirect to index if no Prolific ID is stored
+//console.log(sessionStorage.getItem('prolific_id'));
+window.onload = function() {
+    if(sessionStorage.getItem('prolific_id') === null) {
+        window.location.assign('index.html');
+    } else {
+        findFile(sessionStorage.getItem('prolific_id'));
+    }
+};
+
 // path to testfile.json
 let dataPath = "testfiles/testfile.json";
 
@@ -12,9 +22,7 @@ document.querySelector('#start').addEventListener(
 function runExperiment(dataPath) {
     console.log(dataPath);
     console.log(sessionStorage.getItem('prolific_id'));
-
-    // get participant ID from local storage
-    let prolific_id = sessionStorage.getItem('prolific_id');
+    
     
     // AJAX get request
     let xhr = new XMLHttpRequest();
@@ -42,10 +50,7 @@ function runExperiment(dataPath) {
         // create jsPsych timeline
         let trialTimeline = createTimeline(trialList);
         console.log(trialTimeline);
-        // round trial options
-
-
-
+        
         // run 2 forced choice task
         run2FC(trialTimeline);
 
@@ -92,13 +97,15 @@ function run2FC(trialTimeline) {
                 stimulus_duration: 2000,
                 trial_duration: 2000,
                 on_finish: function(data) {
-                    delete data.stimulus; // not needed in csv data
+                    delete data.stimulus; // not needed in csv
                     // recode button press for csv
                     if(data.key_press == 80){
                     data.choice = "delayed";
                     } else if(data.key_press == 81){
                     data.choice = "immediate";
-                    }
+                    };
+                    // add timelineType
+                    data.timelineType = "trial";
                 }
             },
             feedback = {
@@ -128,9 +135,10 @@ function run2FC(trialTimeline) {
                     }
                 },
                 choices: jsPsych.NO_KEYS,
-                trial_duration: 1000,
+                trial_duration: 500,
                 on_finish: function(data) {
-                    delete data.stimulus; // not needed in csv data
+                    // add timelineType
+                    data.timelineType = "feedback"; 
                 }
             }
         ],
@@ -141,10 +149,13 @@ function run2FC(trialTimeline) {
 
     jsPsych.init({
         timeline: timeline,
+        minimum_valid_rt: 200,
         on_finish: function() {
-            saveData(jsPsych.data.get().csv())
+            // save only trial data, not feedback
+            dataToSave = jsPsych.data.get().filter({timelineType: "trial"}).csv();
+            saveData(dataToSave);
             //window.location.assign('questionnaires.html');
-            //jsPsych.data.displayData('json');
+            jsPsych.data.displayData('json');
         },
         on_close: function(){
             saveData(jsPsych.data.get().csv())
@@ -192,5 +203,40 @@ function constructStim(leftOpt, rightOpt, delay, leftStyle, rightStyle) {
         in ${delay} days
     </font></center></div></div></div></div>`;
         return stimString;
-        
-    }
+};
+
+// function to check session ID and redirect if necessary
+function findFile(id) {
+    let params = {
+        "prolific_id": id
+    };    
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'web_API/checkID.php');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    
+    xhr.onload = function(){
+        response = this.responseText;
+        console.log(response);
+        switch(response) {
+            case '0':
+                break; // stay on page if no data is available but ID is entered
+            case '1':
+                window.location.assign('questionnaires.html');
+                break;
+            case '2':
+                let outTimeline = [];
+                let usedID = {
+                    type: "html-keyboard-response",
+                    stimulus: `<p>Your ID is already used. Thank you for participating!</p>`,
+                    margin_vertical: '100px',
+                    choices: jsPsych.NO_KEYS
+                    };
+                outTimeline.push(usedID);
+                jsPsych.init({
+                    timeline: outTimeline,
+                });
+        }
+    };
+
+    xhr.send(JSON.stringify(params));
+}

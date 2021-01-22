@@ -1,3 +1,11 @@
+// redirect to index if no Prolific ID is stored
+//console.log(sessionStorage.getItem('prolific_id'));
+window.onload = function() {
+    if(sessionStorage.getItem('prolific_id') === null) {
+        window.location.assign('index.html');
+    }
+};
+
 // path to param data
 let prolific_id = sessionStorage.getItem('prolific_id');
 let dataPath = `data/${prolific_id}_params_exp2.json`;

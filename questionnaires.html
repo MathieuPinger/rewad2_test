@@ -31,7 +31,15 @@
     }
 </style>
 <body>
-    <button type="button" id="continue" disabled>Continue to part 2</button> 
+    <button type="button" id="continue" disabled>Continue to part 2</button>
+    <script
+    window.onload = function() {
+        if(sessionStorage.getItem('prolific_id') === null) {
+            window.location.assign('index.html');
+        }
+    };>
+    </script>
     <script src="jspsych_experiment2.js"></script>
+
 </body>
 </html>
