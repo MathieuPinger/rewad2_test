@@ -11,22 +11,6 @@ let prolific_id = sessionStorage.getItem('prolific_id');
 let dataPath = `data/${prolific_id}_params_exp2.json`;
 let continueButton = document.querySelector('#continue');
 
-// function to look for parameter data
-// function findParams(url) {
-//     let xhr = new XMLHttpRequest();
-//     // HEAD request: look for file without loading
-//     xhr.open('HEAD', url, true);
-//     xhr.onload = function() {
-//         console.log(xhr.status);
-//         if (xhr.status == "404") {
-//             return false;
-//         } else {
-//             return true;
-//         };
-//     }
-//     xhr.send();
-// };
-
 // check for params file every 3 seconds and enable/disable button
 searchFile = setInterval(function() {
 
@@ -70,6 +54,11 @@ function runExperiment(dataPath) {
         let trialList = Object.values(trialObj);
         console.log(trialList);
 
+        trialList.forEach(trial => {
+            trial['immOpt'] = parseFloat(trial['immOpt']).toFixed(2);
+            trial['delOpt'] = parseFloat(trial['delOpt']).toFixed(2);
+        });
+        
         // TESTING: only use first 5 trials
         trialList = trialList.slice(0, 5);
         console.log(trialList);
@@ -130,36 +119,79 @@ function createTimeline(trialArray) {
 function run2FC(trialTimeline) {
     // input: jsPsych timeline (array)
 
-    const timeline = [];
+    let timeline = [];
 
-    let testBlock = {
-        type: "html-keyboard-response",
-        timeline: trialTimeline,
-        choices: ['q', 'p'],
-        stimulus_duration: 2000,
-        trial_duration: 2000,
-        on_finish: function(data) {
-            delete data.stimulus;
-            if(data.key_press == 80){
-            data.choice = "delayed";
-          } else if(data.key_press == 81){
-            data.choice = "immediate";
-          }
-        }
+    let trialProcedure = {
+        timeline: [
+            testBlock = {
+                type: "html-keyboard-response",
+                stimulus: jsPsych.timelineVariable('stimulus'),
+                data: jsPsych.timelineVariable('data'),
+                choices: ['q', 'p'],
+                stimulus_duration: 4000,
+                trial_duration: 4000,
+                on_finish: function(data) {
+                    delete data.stimulus; // not needed in csv
+                    // recode button press for csv
+                    if(data.key_press == 80){
+                    data.choice = "delayed";
+                    } else if(data.key_press == 81){
+                    data.choice = "immediate";
+                    };
+                    // add timelineType
+                    data.timelineType = "trial";
+                }
+            },
+            feedback = {
+                type: 'html-keyboard-response',
+                stimulus: function(){
+                    lastChoice = jsPsych.data.getLastTrialData().values()[0].choice;
+                    lastImmOpt = jsPsych.data.getLastTrialData().values()[0].immOpt;
+                    lastDelOpt = jsPsych.data.getLastTrialData().values()[0].delOpt;
+                    lastDelay = jsPsych.data.getLastTrialData().values()[0].delay;
 
-    }
-    timeline.push(testBlock);
+                    if(lastChoice == "immediate"){
+                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                            leftStyle = feedbackStyle);
+                        return trialFeedback
 
-    /* needed:
-    post_trial_gap
-    on_finish (highlight choice etc)
-    */
+                    } else if(lastChoice == "delayed") {
+                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                            leftStyle = undefined, rightStyle = feedbackStyle);
+                        return trialFeedback
+
+                    } else {
+                        trialFeedback = `<div class = centerbox id='container'>
+                        <p class = center-block-text style="color:red;">
+                            Please select an option by pressing Q or P!
+                        </p>`;
+                        return trialFeedback
+                    }
+                },
+                choices: jsPsych.NO_KEYS,
+                trial_duration: 500,
+                on_finish: function(data) {
+                    // add timelineType
+                    data.timelineType = "feedback"; 
+                }
+            }
+        ],
+        timeline_variables: trialTimeline,
+        randomize_order: true
+    };
+    timeline.push(trialProcedure);
 
     jsPsych.init({
         timeline: timeline,
+        minimum_valid_rt: 200,
         on_finish: function() {
-            saveData(jsPsych.data.get().csv());
+            // save only trial data, not feedback
+            dataToSave = jsPsych.data.get().filter({timelineType: "trial"}).csv();
+            saveData(dataToSave);
             //jsPsych.data.displayData('json');
+            jsPsych.endExperiment(
+                `You have finished the experiment.
+                Thank you for participating!`);
         },
         on_close: function(){
             saveData(jsPsych.data.get().csv())
@@ -183,4 +215,28 @@ function saveData(data) {
     };
 
     xhr.send(JSON.stringify(params));
+};
+
+// constructor function for html stimulus
+let feedbackStyle = 'style="border: thick solid  #008000;"';
+function constructStim(leftOpt, rightOpt, delay, leftStyle, rightStyle) {
+    let stimString = `<div class = centerbox id='container'>
+    <p class = center-block-text>
+        Please select the option that you would prefer pressing
+        <strong>'q'</strong> for left
+        <strong>'p'</strong> for right:
+    </p>
+    <div class='table'>
+    <div class='row'>
+    <div class = 'option' id='leftOption' ${leftStyle || null}><center><font color='green'>
+        ${leftOpt}
+    <br>
+        Today
+    </font></center></div>
+    <div class = 'option' id='rightOption' ${rightStyle || null}><center><font color='green'>
+        ${rightOpt}
+    <br>
+        in ${delay} days
+    </font></center></div></div></div></div>`;
+        return stimString;
 };

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script src="jspsych/jspsych.js"></script>
+   <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+   <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+   <script src="jspsych/plugins/jspsych-survey-html-form.js"></script>
+    <link href="jspsych/css/jspsych.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+<script>
+    let timeline = [];
+
+    let welcomeText =
+    `<img src='logos/zi-logo-rgb.png' width='350'></img>
+    <p>Welcome to our experiment.</p>
+    <p><b>
+    Whilst completing the experiment, please DO NOT close or refresh your browser window</p>
+    <p>Thank you for your interest in taking part.</p>
+    <p>Please press the button below to begin. </p>`
+
+    let welcome = {
+        type: "html-button-response",
+        stimulus: welcomeText,
+        choices: ['Click here to continue'],
+        margin_vertical: '100px',
+    };
+
+    let prolific_id = {
+      type: 'survey-html-form',
+      preamble: '<p><b>Please enter your Prolific (or test) ID:</b></p>',
+      html: `<div class="questions">
+        </p><p><input 
+            type="text" 
+            id="prolific_id" 
+            required="required" 
+            name="prolific_id" 
+            pattern="[a-zA-Z0-9-]+"></p></div>`,
+      on_finish: function(data) {
+        var prolific = JSON.parse(data.responses)["prolific_id"];
+        sessionStorage.setItem('prolific_id', prolific);
+        findFile(prolific);
+        //window.location.assign('discounting_part1.html'); 
+      }
+  };
+
+    timeline.push(welcome, prolific_id);
+
+    /* start the experiment */
+    jsPsych.init({
+        timeline: timeline,
+    });
+
+function findFile(id) {
+    let params = {
+        "prolific_id": id
+    };    
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'web_API/checkID.php');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    
+    xhr.onload = function(){
+        response = this.responseText;
+        console.log(response);
+
+        switch(response) {
+            case '0':
+                window.location.assign('discounting_part1.html');
+                break;
+            case '1':
+                window.location.assign('questionnaires.html');
+                break;
+            case '2':
+                let outTimeline = [];
+                let usedID = {
+                    type: "html-keyboard-response",
+                    stimulus: `<p>Your ID is already used. Thank you for participating!</p>`,
+                    margin_vertical: '100px',
+                    choices: jsPsych.NO_KEYS
+                    };
+                outTimeline.push(usedID);
+                jsPsych.init({
+                    timeline: outTimeline,
+                });
+        }
+    };
+    xhr.send(JSON.stringify(params));
+};
+
+
+</script>
+</body>
+</html>

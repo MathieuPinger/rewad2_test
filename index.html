@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
    <script src="jspsych/jspsych.js"></script>
-   <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
-   <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
    <script src="jspsych/plugins/jspsych-survey-html-form.js"></script>
+   <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
     <link href="jspsych/css/jspsych.css" rel="stylesheet">
     <style>
 
@@ -21,11 +20,9 @@
     `<img src='logos/zi-logo-rgb.png' width='350'></img>
     <p>Welcome to our experiment.</p>
     <p><b>
-    Whilst completing the experiment, please DO NOT do the following:</b>
-    </p><p>DO NOT resize your browser window;</p>
-    <p>DO NOT close or refresh your browser window</p>
+    Whilst completing the experiment, please DO NOT close or refresh your browser window</p>
     <p>Thank you for your interest in taking part.</p>
-    <p>Please press the button below to begin. </p>"`
+    <p>Please press the button below to begin. </p>`
 
     let welcome = {
         type: "html-button-response",
@@ -45,20 +42,317 @@
             name="prolific_id" 
             pattern="[a-zA-Z0-9-]+"></p></div>`,
       on_finish: function(data) {
-        var prolific = JSON.parse(data.responses)["prolific_id"];
+        let prolific = JSON.parse(data.responses)["prolific_id"];
+        // set prolific ID as session storage until consent is signed
         sessionStorage.setItem('prolific_id', prolific);
+
+        // redirect to finish or other page if ID is already (partially) used:
         findFile(prolific);
         //window.location.assign('discounting_part1.html'); 
       }
   };
 
-    timeline.push(welcome, prolific_id);
+  // INFORMATION SHEET AND CONSENT FORM
+var consentForm = {
+    type: 'survey-html-form',
+    on_load: function() {
+        btn = document.querySelector('.jspsych-btn');
+        btn.classList.remove('.jspsych-btn');
+        btn.classList.add('consent-btn');
+    },
 
-    /* start the experiment */
-    jsPsych.init({
-        timeline: timeline,
-    });
+    preamble:
+    `<div class="contact">
+        <img src="logos/zi-logo-rgb.png" width="200"</img>
+        <p><b>Department of Clinical Psychology</b><br>
+        Head:<br> Prof. Dr. Peter Kirsch<br><br>
+        Phone  +49 621 1703-6502<br>
+        Fax    +49 621 1703-6505<br>
+        <a href = "mailto: peter.kirsch@zi-mannheim.de" target="_blank">peter.kirsch@zi-mannheim.de</a><br>
+        <a href="https://www.zi-mannheim.de/" target="_blank">https://www.zi-mannheim.de/</a>
+    </div>
 
+    <div>
+        <h1>Information Sheet and to Act as a Research Subject</h1>
+        <h2>Study Title: <i>Reward and Aversion Discounting</i></h2>
+        <h3>Who is conducting the study? Why have you been asked to participate?
+        How were you selected? What is the approximate number of participants in the study?</h3>
+        <p>We are scientists from the Clinical Psychology department directed by Prof. Dr. Peter Kirsch 
+        at the Central Institute of Mental Health, Mannheim, Germany. This study aims at developing and 
+        validating decision-making tasks with a representative sample of participants. 
+        Participants are volunteers who are recruited on survey platforms and who will be reimbursed 
+        for the time taken to complete this study.</p>
+        
+        <h3>Why is this study being done?</h3>
+        <p>We are interested in monetary decision-making. 
+        The primary aim of this study is to find choice patterns in situations where participants 
+        have to decide between smaller immediate and larger delayed monetary wins or losses. 
+        The secondary aim of this study is to explore the relationship between monetary 
+        decision-making and alcohol consumption.</p>
+        
+        <h3>What will happen in this study?</h3>
+        <p>If you agree to be in this study, you will complete this experiment online 
+        using your web browser. You will perform multiple blocks of two decision-making 
+        tasks where you have to choose between two imaginary amounts of money: in one task, 
+        you have to decide between a smaller immediate win or a larger win in the future. 
+        In the other task, you have to decide between a smaller immediate loss or a larger 
+        loss in the future. The amounts of money and the temporal delay for the future option 
+        (in days) will be varied. After half of the blocks, you will be asked to fill out several 
+        questions regarding your demographics, your behavior in specific situations and your 
+        consumption of alcohol.</p>
+        
+        <h3>How much time will each study procedure take, what is your total time commitment, 
+        and how long will the study last?</h3>
+        <p>Participation in this experiment will take place over one session and will last 
+        <b>between 30 and 45 minutes</b>.</p>
+        
+        <h3>What are the potential risks associated with this study?</h3>
+        <p>Participation in this study is not associated with any risks. 
+        However, you may experience discomforts, e.g. frustration, boredom 
+        and/or fatigue while participating in our study. But if you experience 
+        any discomfort you may withdraw from the experiment at any time by closing the browser.</p>
+        
+        <h3>Who will handle my data and what are their qualifications?</h3>
+        <p>Only the following research staff involved will have access to your 
+        personal and research data: Prof Dr Peter Kirsch, Dr Georgia Koppe, 
+        Dr Janine Thome, Mr Patrick Halli and Mr Mathieu Pinger. This study is part 
+        of the Collaborative Research Centre TRR265: Losing and Regaining Control over 
+        Drug Intake, a trans-regional collaboration funded by the Germany Research Foundation (DFG).
+        For more information, visit 
+        <a href="https://sfb-trr265.charite.de/en/" target="_blank">https://sfb-trr265.charite.de/en/</a>.</p>
+        
+        <p>Prof Dr Peter Kirsch is the Principle Investigator of the Department of Clinical Psychology 
+        at the Central Institute of Mental Health and has attained a PhD in Clinical Psychology. 
+        Dr Georgia Koppe is Principle Investigator of the research group Computational Psychiatry 
+        at the Central Institute of Mental Health and has attained a PhD in Psychology. 
+        Dr Janine Thome is a Post-doctoral scientist in the Computational Psychiatry research group 
+        at the Central Institute of Mental Health and has attained a PhD in Psychology. 
+        Mr Patrick Halli and Mr Mathieu Pinger are PhD students in the Department of Clinical Psychology 
+        at the Central Institute of Mental Health. 
+        Other qualified personnel from the Department of Clinical Psychology and the trans-regional 
+        research collaboration may handle your data, including graduate students and research assistants. 
+        For all individuals that handle your data, regular data security seminars are mandatory.</p>
+        
+        <h3>Information about data protection</h3>
+        <p>All data will be handled in accordance with the DSGVO (General Data Protection Regulation Act, 2016). 
+        The experiment is hosted on a secure internet connection (with a https certificate) and the 
+        data is encrypted and stored on a secure server which is under the administration of the 
+        IT department of the Central Institute of Mental Health. 
+        Personal data (e.g., any communication you send us via email about the experiment) will be stored 
+        separately from your research data (e.g., age, sex, gender, education, ethnicity, alcohol consumption, 
+        decision-making in the tasks). You will be assigned a random participant ID and be known only by this ID. 
+        Therefore, your research data are stored anonymously. Your personal data and your research data will not 
+        be linked. The personal data that you may provide (e.g., your personal email address due to contacting 
+        us via email) will be securely and temporarily stored during any correspondence on a password 
+        protected email account hosted at the Central Institute of Mental Health under the 
+        administration of IT. Once any correspondence is completed the correspondence alongside your 
+        email address will be deleted. Sharing data openly is good scientific practice, so your anonymized 
+        research data may later be shared with other researchers and research funding bodies via data 
+        sharing services (e.g., The Open Science Framework, The German Research Foundation (DFG), etc.). 
+        For that reason, the data will be stored indefinitely. Because you	r data are anonymous and we will 
+        not able to tell which data belongs to you, we will also not be able to 
+        delete your data if you request it.</p>
+
+        <h3>Who is responsible for processing my personal data?</h3>
+        <p>Prof Dr Peter Kirsch is responsible for processing your data and can be contacted 
+        using the following details.</p>
+        <p>
+            <b>Prof Dr Peter Kirsch</b><br>Department of Clinical Psychology<br> 
+            J 5, 68159, Mannheim, Germany<br>
+            Tel: +49 621 1703-6502<br>
+            Email:  <a href = "mailto: Peter.Kirsch@zi-mannheim.de" target="_blank">
+                    Peter.Kirsch@zi-mannheim.de
+                    </a><br>
+            Website:    <a href="https://www.zi-mannheim.de/en/research/people/person/10013.html target="_blank"">
+                        https://www.zi-mannheim.de/en/research/people/person/10013.html
+                        </a>
+        </p>
+        
+        <h3>Who is the data protection officer and how can I contact them?</h3>
+        <p>
+            Dr. Regina Mathes, Datenschutzbeauftragte (data protection officer)<br>
+            J 5, 68159 Mannheim<br>
+            E-Mail: <a href = "mailto: datenschutzbeauftragter@zi-mannheim.de" target="_blank">
+                    datenschutzbeauftragter@zi-mannheim.de
+                    </a>
+        </p>
+        
+        <h3>Who can I contact in case of the violation of data protection laws?</h3>
+        <p>In case of the violation of data protection laws you can appeal to the federal 
+        state commissioner for data protection of the German federal state of Baden-Württemberg.</p>
+        <p>
+            Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg<br>
+            Postfach 10 29 32, 70025 Stuttgart<br>
+            Königstraße 10a, 70173 Stuttgart<br>
+            Tel.: 0711/61 55 41 – 0<br>
+            Fax: 0711/61 55 41 – 15<br>
+            E-Mail: <a href = "mailto: poststelle@lfdi.bwl.de" target="_blank">poststelle@lfdi.bwl.de</a><br> 
+            Internet:   <a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank">
+                        https://www.baden-wuerttemberg.datenschutz.de
+                        </a>
+        </p>
+
+        <h3>What are the alternatives to participating in this study?</h3>
+        <p>The alternatives to participation in this study are not participating in 
+        this experiment or participating in alternative experiments which are available.</p>
+
+        <h3>What benefits can be reasonably expected?</h3>
+        <p>Other than the compensation you receive, there is no direct benefit to you from 
+        participating this study. However, you are contributing to scientific progress and 
+        society may benefit from the knowledge that is acquired in this experiment.</p>
+
+        <h3>Can you choose to not participate or withdraw from 
+        the study without penalty or loss of benefits?</h3>
+        <p>Participation in research is entirely voluntary. You may refuse to participate or withdraw.
+        If you decide that you no longer wish to continue in this study, simply close the 
+        tab in your web browser in which the experiment is open in or close your browser.</p>
+
+        <h3>Can you be withdrawn from the study without your consent?</h3>
+        <p>You may be withdrawn from the study if you do not follow the instructions given. 
+        You will be removed from this experiment if you do not finish.</p>
+
+        <h3>Will you be compensated for participating in this study?</h3>
+        <p>In compensation for your time, you will receive £6.50 per hour via Prolific 
+        once you have completed the experiment.</p>
+                        
+        <h3>Are there any costs associated with participating in this study?</h3>
+        <p>There will be no cost to you for participating in this study.</p>
+
+        <h3>Who can you contact if you have questions?</h3>
+        <p>Mr Mathieu Pinger can explain this study to you in further detail 
+        and can answer your questions if required. If you have other questions or 
+        research-related problems, you may reach Mr Mathieu Pinger at
+            <a href = "mailto: Mathieu.Pinger@zi-mannheim.de." target="_blank">
+            Mathieu.Pinger@zi-mannheim.de.
+            </a></p>
+    </div>`,
+    
+    html:
+    `<div class="questions">
+        <p>I have read and understood the information above</p>
+        <p>
+            <select class="large-select" id="consent1" 
+            required="required" name="consentSelect0" class="questions"> 
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </p>
+    
+        <p>I have had the opportunity to ask questions</p>
+        <p>
+            <select class="large-select" id="consent2" required="required" 
+            name= "consentSelect1" onchange="questionAlert(this.value)">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="I did not have any questions">I did not have any questions</option>
+            </select>
+        </p>
+    
+        <p>I have received satisfactory answers to my questions</p>
+        <p>
+            <select class="large-select" id="consent3" required="required" name="consentSelect2" 
+            onchange="questionAlert(this.value)">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="I did not have any questions">I did not have any questions</option>
+            </select>
+        </p>
+    
+        <p>I understood that I am free to withdraw from this experiment at any time, without giving a reason</p>
+        <p>
+            <select class="large-select" id="consent4" required="required" name="consentSelect3">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select> 
+        </p>
+    
+        <p>I understand that my personal details will not be revealed to people outside of this project</p>
+        <p>
+            <select class="large-select" id="consent5" required="required" name="consentSelect4">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </p>
+    
+        <p><b>I agree for my personal data to be processed and stored in the way described above 
+        (e.g., if you contact us via email to answer any questions you might have about the
+        experiment we will securely store your correspondence and email address and delete it 
+        immediately after correspondence has ended or when no further responses are required.)</b></p>
+        <p>
+            <select class="large-select" id="consent6" required="required" name="consentSelect5">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </p>
+    
+        <p>Do you give your consent to participate in this experiment?</p>
+        <p>
+            <select class="large-select" id="consent7" required="required" name="consentSelect6">
+                <option value=""></option>
+                <option value="Yes">Yes</option> 
+                <option value="No">No</option>
+            </select>
+        </p>
+    </div>`,
+    button_label: 'Continue to Experiment',
+    on_finish: function(data) {
+        let ethics = Object.values(JSON.parse(data.responses));
+        sessionStorage.setItem('ethics', JSON.stringify(ethics));
+        if(ethics.includes("No")){
+            jsPsych.endExperiment(
+                `<p>You did not consent to participate. 
+                The session will now finish. This is because 
+                you answered "no" to at least one of the questions 
+                in the consent form. Please close your browser or 
+                this tab to leave the experiment. Thank you for your time!</p>`);
+        } else {
+            dataToSave = jsPsych.data.get().filter({trial_index: 2}).csv();
+            saveData(dataToSave);
+        };
+      }
+};
+
+timeline.push(welcome, prolific_id, consentForm);
+
+/* start the experiment */
+jsPsych.init({
+    timeline: timeline,
+    experiment_width: 750});
+
+// display alert when open questions are indicated
+function questionAlert(val) {
+    if (val == "No") {
+        alert('If you do have questions and would still like to participate please contact Dr Morgan via email at david.morgan@zi-mannheim.de before continuing and close ' + 
+              'the web page. If you do not have any questions please click the "I did not have any questions" option');
+    } 
+}
+
+// save data
+function saveData(data) {
+    // creates object with prolific id and experiment data
+    // sends json-object to php for storage
+    let params = {
+        "prolific_id": sessionStorage.getItem('prolific_id'),
+        "data": data
+    };    
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'web_API/saveConsent.php');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    
+    xhr.onload = function(){
+        window.location.assign('discounting_part1.html');
+    };
+
+    xhr.send(JSON.stringify(params));
+};
+
+// redirect if ID is already used
 function findFile(id) {
     let params = {
         "prolific_id": id
@@ -73,8 +367,8 @@ function findFile(id) {
 
         switch(response) {
             case '0':
-                window.location.assign('discounting_part1.html');
-                break;
+                // for now: stay on page --> change findFile to "look for consent"!
+                break; 
             case '1':
                 window.location.assign('questionnaires.html');
                 break;
