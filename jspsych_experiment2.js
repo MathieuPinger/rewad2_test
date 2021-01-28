@@ -75,35 +75,58 @@ function runExperiment(dataPath) {
 
 };
 
-function createTimeline(trialArray) {
-    // input array: immOpt, delOpt, delay
-    // output jsPsych-Timeline: html stimuli
+// function createTimeline(trialArray) {
+//     // input array: immOpt, delOpt, delay
+//     // output jsPsych-Timeline: html stimuli
 
-    // initialize timeline
+//     // initialize timeline
+//     const trialTimeline = [];
+
+//     // add trials to timeline: loop through trialList
+//     trialArray.map(trial => {
+//         let trialData = {
+//             stimulus:
+//             `<div class = centerbox id='container'>
+//             <p class = center-block-text>
+//                 Please select the option that you would prefer pressing
+//                 <strong>'q'</strong> for left
+//                 <strong>'p'</strong> for right:
+//             </p>
+//             <div class='table'>
+//             <div class='row'>
+//             <div id = 'option'><center><font color='green'>
+//                 ${trial.immOpt}
+//             <br>
+//                 Today
+//             </font></center></div>
+//             <div id = 'option'><center><font color='green'>
+//                 ${trial.delOpt}
+//             <br>
+//                 in ${trial.delay} days
+//             </font></center></div></div></div></div>`,
+
+//             data: {
+//                 immOpt: trial.immOpt,
+//                 delOpt: trial.delOpt,
+//                 delay: trial.delay
+//             }
+//         }
+//         trialTimeline.push(trialData);
+//         });
+//     return trialTimeline;
+// };
+
+function createTimeline(trialArray) {
+    /*
+    input: array of Objects with immOpt, delOpt, delay
+    output: jsPsych-Timeline with html stimuli
+    */
     const trialTimeline = [];
 
     // add trials to timeline: loop through trialList
     trialArray.map(trial => {
         let trialData = {
-            stimulus:
-            `<div class = centerbox id='container'>
-            <p class = center-block-text>
-                Please select the option that you would prefer pressing
-                <strong>'q'</strong> for left
-                <strong>'p'</strong> for right:
-            </p>
-            <div class='table'>
-            <div class='row'>
-            <div id = 'option'><center><font color='green'>
-                ${trial.immOpt}
-            <br>
-                Today
-            </font></center></div>
-            <div id = 'option'><center><font color='green'>
-                ${trial.delOpt}
-            <br>
-                in ${trial.delay} days
-            </font></center></div></div></div></div>`,
+            stimulus: constructStim(trial.immOpt, trial.delOpt, trial.delay),
 
             data: {
                 immOpt: trial.immOpt,
