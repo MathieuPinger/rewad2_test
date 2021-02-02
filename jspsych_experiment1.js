@@ -75,13 +75,19 @@ function createTimeline(trialArray) {
 
     // add trials to timeline: loop through trialList
     trialArray.map(trial => {
+        // create random number: 0 or 1
+        // rando == 0 -> immediate left; rando == 1 -> immediate right
+        trial.rando = Math.round(Math.random());
+
         let trialData = {
-            stimulus: constructStim(trial.immOpt, trial.delOpt, trial.delay),
+            // 
+            stimulus: constructStim(trial.rando, trial.immOpt, trial.delOpt, trial.delay),
 
             data: {
                 immOpt: trial.immOpt,
                 delOpt: trial.delOpt,
-                delay: trial.delay
+                delay: trial.delay,
+                randomize: trial.rando
             }
         }
         trialTimeline.push(trialData);
@@ -147,13 +153,6 @@ function run2FC(trialTimeline) {
                 data: jsPsych.timelineVariable('data'),
                 choices: ['q', 'p'],
                 on_finish: function(data) {
-                    delete data.stimulus; // not needed in csv
-                    // recode button press for csv
-                    if(data.key_press == 80){
-                    data.choice = "delayed";
-                    } else if(data.key_press == 81){
-                    data.choice = "immediate";
-                    };
                     // add timelineType
                     data.timelineType = "test";
                 }
@@ -161,18 +160,19 @@ function run2FC(trialTimeline) {
             testingFeedback = {
                 type: 'html-keyboard-response',
                 stimulus: function(){
-                    lastChoice = jsPsych.data.getLastTrialData().values()[0].choice;
+                    lastChoice = jsPsych.data.getLastTrialData().values()[0].key_press;
+                    lastRando = jsPsych.data.getLastTrialData().values()[0].randomize;
                     lastImmOpt = jsPsych.data.getLastTrialData().values()[0].immOpt;
                     lastDelOpt = jsPsych.data.getLastTrialData().values()[0].delOpt;
                     lastDelay = jsPsych.data.getLastTrialData().values()[0].delay;
 
-                    if(lastChoice == "immediate"){
-                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                    if(lastChoice == 81){
+                        trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
                             leftStyle = feedbackStyle);
                         return trialFeedback
 
-                    } else if(lastChoice == "delayed") {
-                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                    } else if(lastChoice == 80) {
+                        trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
                             leftStyle = undefined, rightStyle = feedbackStyle);
                         return trialFeedback
 
@@ -193,18 +193,18 @@ function run2FC(trialTimeline) {
             }
         ],
         timeline_variables: [
-            {   data: {immOpt: '5.00', delOpt: '10.20', delay: '7'},
-                stimulus: constructStim('5.00', '10.20', '7') },
-            {   data: {immOpt: '4.00', delOpt: '6.80', delay: '20'},
-                stimulus: constructStim('4.00', '6.80', '20') },
-            {   data: {immOpt: '3.00', delOpt: '3.40', delay: '10'},
-                stimulus: constructStim('3.00', '3.40', '10') },
-            {   data: {immOpt: '-5.00', delOpt: '-10.20', delay: '7'},
-                stimulus: constructStim('-5.00', '-10.20', '7') },
-            {   data: {immOpt: '-10.00', delOpt: '-15.50', delay: '50'},
-                stimulus: constructStim('-10.00', '-15.50', '50') },
-            { data: {immOpt: '-4.00', delOpt: '-6.80', delay: '20'},
-                stimulus: constructStim('-4.00', '-6.80', '20') }
+            {   data: {immOpt: '5.00', delOpt: '10.20', delay: '7', randomize: '0'},
+                stimulus: constructStim('0', '5.00', '10.20', '7') },
+            {   data: {immOpt: '4.00', delOpt: '6.80', delay: '20', randomize: '1'},
+                stimulus: constructStim('1', '4.00', '6.80', '20') },
+            {   data: {immOpt: '3.00', delOpt: '3.40', delay: '10', randomize: '1'},
+                stimulus: constructStim('1', '3.00', '3.40', '10') },
+            {   data: {immOpt: '-5.00', delOpt: '-10.20', delay: '7', randomize: '0'},
+                stimulus: constructStim('0', '-5.00', '-10.20', '7') },
+            {   data: {immOpt: '-10.00', delOpt: '-15.50', delay: '50', randomize: '1'},
+                stimulus: constructStim('1', '-10.00', '-15.50', '50') },
+            { data: {immOpt: '-4.00', delOpt: '-6.80', delay: '20', randomize: '0'},
+                stimulus: constructStim('0', '-4.00', '-6.80', '20') }
         ],
         randomize_order: false
     };
@@ -234,9 +234,13 @@ function run2FC(trialTimeline) {
                 on_finish: function(data) {
                     delete data.stimulus; // not needed in csv
                     // recode button press for csv
-                    if(data.key_press == 80){
+                    if(data.key_press == 80 && data.randomize == 0){
                     data.choice = "delayed";
-                    } else if(data.key_press == 81){
+                    } else if(data.key_press == 81 && data.randomize == 0){
+                    data.choice = "immediate";
+                    } else if(data.key_press == 81 && data.randomize == 1){
+                    data.choice = "delayed";
+                    } else if(data.key_press == 80 && data.randomize == 1){
                     data.choice = "immediate";
                     };
                     // add timelineType
@@ -246,18 +250,19 @@ function run2FC(trialTimeline) {
             feedback = {
                 type: 'html-keyboard-response',
                 stimulus: function(){
-                    lastChoice = jsPsych.data.getLastTrialData().values()[0].choice;
+                    lastChoice = jsPsych.data.getLastTrialData().values()[0].key_press;
+                    lastRando = jsPsych.data.getLastTrialData().values()[0].randomize;
                     lastImmOpt = jsPsych.data.getLastTrialData().values()[0].immOpt;
                     lastDelOpt = jsPsych.data.getLastTrialData().values()[0].delOpt;
                     lastDelay = jsPsych.data.getLastTrialData().values()[0].delay;
 
-                    if(lastChoice == "immediate"){
-                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                    if(lastChoice == 81){
+                        trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
                             leftStyle = feedbackStyle);
                         return trialFeedback
 
-                    } else if(lastChoice == "delayed") {
-                        trialFeedback = constructStim(lastImmOpt, lastDelOpt, lastDelay,
+                    } else if(lastChoice == 80) {
+                        trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
                             leftStyle = undefined, rightStyle = feedbackStyle);
                         return trialFeedback
 
@@ -318,7 +323,9 @@ function saveData(data) {
 // constructor function for html stimulus
 let feedbackStyle = 'style="border: thick solid  #008000;"';
 
-function constructStim(leftOpt, rightOpt, delay, leftStyle, rightStyle) {
+function constructStim(rando, immOpt, delOpt, delay, leftStyle, rightStyle) {
+    // rando = randomize left/right presentation
+    // if rando == 0 -> immediate left, else right
     let stimString = `<div class = centerbox id='container'>
     <p class = center-block-text>
         Please select the option that you would prefer pressing
@@ -328,14 +335,14 @@ function constructStim(leftOpt, rightOpt, delay, leftStyle, rightStyle) {
     <div class='table'>
     <div class='row'>
     <div class = 'option' id='leftOption' ${leftStyle || null}><center><font color='green'>
-        ${leftOpt}
+        ${rando==0 ? immOpt : delOpt} €
     <br>
-        Today
+        ${rando==0 ? 'Today' : `in ${delay} days`}
     </font></center></div>
     <div class = 'option' id='rightOption' ${rightStyle || null}><center><font color='green'>
-        ${rightOpt}
+        ${rando==0 ? delOpt : immOpt} €
     <br>
-        in ${delay} days
+        ${rando==0 ? `in ${delay} days` : 'Today'}
     </font></center></div></div></div></div>`;
         return stimString;
 };
