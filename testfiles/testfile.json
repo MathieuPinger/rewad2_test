@@ -3,1008 +3,2352 @@
         "id": "1",
         "immOpt": "19.60784314",
         "delOpt": "20",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "2": {
         "id": "2",
         "immOpt": "1.666666667",
         "delOpt": "10",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "3": {
         "id": "3",
         "immOpt": "3.333333333",
         "delOpt": "20",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "4": {
         "id": "4",
         "immOpt": "0.4",
         "delOpt": "1",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "5": {
         "id": "5",
         "immOpt": "4",
         "delOpt": "10",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "6": {
         "id": "6",
         "immOpt": "1.428571429",
         "delOpt": "10",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "7": {
         "id": "7",
         "immOpt": "0.833333333",
         "delOpt": "5",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "8": {
         "id": "8",
         "immOpt": "1.666666667",
         "delOpt": "10",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "9": {
         "id": "9",
         "immOpt": "0.909090909",
         "delOpt": "1",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "10": {
         "id": "10",
         "immOpt": "6.666666667",
         "delOpt": "10",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "11": {
         "id": "11",
         "immOpt": "19.41747573",
         "delOpt": "20",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "12": {
         "id": "12",
         "immOpt": "0.1",
         "delOpt": "1",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "13": {
         "id": "13",
         "immOpt": "0.384615385",
         "delOpt": "10",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "14": {
         "id": "14",
         "immOpt": "0.192307692",
         "delOpt": "5",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "15": {
         "id": "15",
         "immOpt": "0.4",
         "delOpt": "1",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "16": {
         "id": "16",
         "immOpt": "8.333333333",
         "delOpt": "10",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "17": {
         "id": "17",
         "immOpt": "3.333333333",
         "delOpt": "5",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "18": {
         "id": "18",
         "immOpt": "2.5",
         "delOpt": "5",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "19": {
         "id": "19",
         "immOpt": "4.901960784",
         "delOpt": "5",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "20": {
         "id": "20",
         "immOpt": "0.333333333",
         "delOpt": "1",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "21": {
         "id": "21",
         "immOpt": "0.64516129",
         "delOpt": "20",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "22": {
         "id": "22",
         "immOpt": "0.909090909",
         "delOpt": "10",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "23": {
         "id": "23",
         "immOpt": "0.166666667",
         "delOpt": "1",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "24": {
         "id": "24",
         "immOpt": "1.25",
         "delOpt": "20",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "25": {
         "id": "25",
         "immOpt": "0.526315789",
         "delOpt": "1",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "26": {
         "id": "26",
         "immOpt": "0.454545455",
         "delOpt": "5",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "27": {
         "id": "27",
         "immOpt": "12.5",
         "delOpt": "20",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "28": {
         "id": "28",
         "immOpt": "3.333333333",
         "delOpt": "5",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "29": {
         "id": "29",
         "immOpt": "0.769230769",
         "delOpt": "20",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "30": {
         "id": "30",
         "immOpt": "5.263157895",
         "delOpt": "10",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "31": {
         "id": "31",
         "immOpt": "0.833333333",
         "delOpt": "5",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "32": {
         "id": "32",
         "immOpt": "0.666666667",
         "delOpt": "1",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "33": {
         "id": "33",
         "immOpt": "4.854368932",
         "delOpt": "5",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "34": {
         "id": "34",
         "immOpt": "2.631578947",
         "delOpt": "5",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "35": {
         "id": "35",
         "immOpt": "2",
         "delOpt": "20",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "36": {
         "id": "36",
         "immOpt": "16.66666667",
         "delOpt": "20",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "37": {
         "id": "37",
         "immOpt": "0.833333333",
         "delOpt": "1",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "38": {
         "id": "38",
         "immOpt": "0.5",
         "delOpt": "1",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "39": {
         "id": "39",
         "immOpt": "0.161290323",
         "delOpt": "5",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "40": {
         "id": "40",
         "immOpt": "5",
         "delOpt": "10",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "41": {
         "id": "41",
         "immOpt": "10",
         "delOpt": "20",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "42": {
         "id": "42",
         "immOpt": "2.857142857",
         "delOpt": "10",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "43": {
         "id": "43",
         "immOpt": "1.428571429",
         "delOpt": "10",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "44": {
         "id": "44",
         "immOpt": "2.5",
         "delOpt": "10",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "45": {
         "id": "45",
-        "immOpt": "3.125",
+        "immOpt": "3125",
         "delOpt": "5",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "46": {
         "id": "46",
         "immOpt": "0.019607843",
         "delOpt": "1",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "47": {
         "id": "47",
         "immOpt": "0.714285714",
         "delOpt": "5",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "48": {
         "id": "48",
         "immOpt": "13.33333333",
         "delOpt": "20",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "49": {
         "id": "49",
         "immOpt": "0.006622517",
         "delOpt": "1",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "50": {
         "id": "50",
         "immOpt": "0.769230769",
         "delOpt": "1",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "51": {
         "id": "51",
         "immOpt": "0.142857143",
         "delOpt": "1",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "52": {
         "id": "52",
         "immOpt": "3.333333333",
         "delOpt": "10",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "53": {
         "id": "53",
         "immOpt": "0.047619048",
         "delOpt": "1",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "54": {
         "id": "54",
         "immOpt": "0.970873786",
         "delOpt": "1",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "55": {
         "id": "55",
         "immOpt": "15.38461538",
         "delOpt": "20",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "56": {
         "id": "56",
         "immOpt": "0.5",
         "delOpt": "5",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "57": {
         "id": "57",
-        "immOpt": "0.625",
+        "immOpt": "625",
         "delOpt": "10",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "58": {
         "id": "58",
         "immOpt": "2.5",
         "delOpt": "5",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "59": {
         "id": "59",
         "immOpt": "2.857142857",
         "delOpt": "20",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "60": {
         "id": "60",
         "immOpt": "2.5",
         "delOpt": "10",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "61": {
         "id": "61",
         "immOpt": "6.666666667",
         "delOpt": "10",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "62": {
         "id": "62",
         "immOpt": "0.285714286",
         "delOpt": "1",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "63": {
         "id": "63",
         "immOpt": "9.090909091",
         "delOpt": "10",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "64": {
         "id": "64",
         "immOpt": "0.3125",
         "delOpt": "5",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "65": {
         "id": "65",
         "immOpt": "0.25",
         "delOpt": "1",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "66": {
         "id": "66",
         "immOpt": "0.952380952",
         "delOpt": "20",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "67": {
         "id": "67",
         "immOpt": "0.833333333",
         "delOpt": "5",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "68": {
         "id": "68",
         "immOpt": "0.666666667",
         "delOpt": "1",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "69": {
         "id": "69",
         "immOpt": "1.666666667",
         "delOpt": "10",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "70": {
         "id": "70",
         "immOpt": "3.333333333",
         "delOpt": "20",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "71": {
         "id": "71",
         "immOpt": "0.909090909",
         "delOpt": "10",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "72": {
         "id": "72",
         "immOpt": "0.25",
         "delOpt": "1",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "73": {
         "id": "73",
         "immOpt": "0.327868852",
         "delOpt": "20",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "74": {
         "id": "74",
         "immOpt": "0.5",
         "delOpt": "1",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "75": {
         "id": "75",
-        "immOpt": "0.625",
+        "immOpt": "625",
         "delOpt": "10",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "76": {
         "id": "76",
         "immOpt": "0.132450331",
         "delOpt": "20",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "77": {
         "id": "77",
         "immOpt": "0.016393443",
         "delOpt": "1",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "78": {
         "id": "78",
         "immOpt": "1.25",
         "delOpt": "5",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "79": {
         "id": "79",
         "immOpt": "0.833333333",
         "delOpt": "1",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "80": {
         "id": "80",
         "immOpt": "2",
         "delOpt": "5",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "81": {
         "id": "81",
         "immOpt": "9.090909091",
         "delOpt": "10",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "82": {
         "id": "82",
         "immOpt": "5",
         "delOpt": "20",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "83": {
         "id": "83",
         "immOpt": "5",
         "delOpt": "20",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "84": {
         "id": "84",
         "immOpt": "9.900990099",
         "delOpt": "10",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "85": {
         "id": "85",
         "immOpt": "4.166666667",
         "delOpt": "5",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "86": {
         "id": "86",
         "immOpt": "0.476190476",
         "delOpt": "10",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "87": {
         "id": "87",
         "immOpt": "0.333333333",
         "delOpt": "1",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "88": {
         "id": "88",
         "immOpt": "1.666666667",
         "delOpt": "5",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "89": {
         "id": "89",
         "immOpt": "0.952380952",
         "delOpt": "1",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "90": {
         "id": "90",
         "immOpt": "5.714285714",
         "delOpt": "20",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "91": {
         "id": "91",
         "immOpt": "5",
         "delOpt": "10",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "92": {
         "id": "92",
         "immOpt": "10.52631579",
         "delOpt": "20",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "93": {
         "id": "93",
         "immOpt": "1",
         "delOpt": "10",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "94": {
         "id": "94",
         "immOpt": "0.454545455",
         "delOpt": "5",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "95": {
         "id": "95",
         "immOpt": "0.322580645",
         "delOpt": "10",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "96": {
         "id": "96",
         "immOpt": "2.5",
         "delOpt": "5",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "97": {
         "id": "97",
         "immOpt": "0.038461538",
         "delOpt": "1",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "98": {
         "id": "98",
         "immOpt": "4.95049505",
         "delOpt": "5",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "99": {
         "id": "99",
         "immOpt": "13.33333333",
         "delOpt": "20",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "100": {
         "id": "100",
         "immOpt": "0.0625",
         "delOpt": "1",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "101": {
         "id": "101",
         "immOpt": "4.761904762",
         "delOpt": "5",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "102": {
         "id": "102",
         "immOpt": "19.8019802",
         "delOpt": "20",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "103": {
         "id": "103",
         "immOpt": "0.25",
         "delOpt": "1",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "104": {
         "id": "104",
         "immOpt": "1.25",
         "delOpt": "20",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "105": {
         "id": "105",
         "immOpt": "9.523809524",
         "delOpt": "10",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "106": {
         "id": "106",
         "immOpt": "0.033112583",
         "delOpt": "5",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "107": {
         "id": "107",
         "immOpt": "1.25",
         "delOpt": "5",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "108": {
         "id": "108",
         "immOpt": "1.818181818",
         "delOpt": "20",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "109": {
         "id": "109",
         "immOpt": "5",
         "delOpt": "20",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "110": {
         "id": "110",
         "immOpt": "3.846153846",
         "delOpt": "5",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "111": {
         "id": "111",
         "immOpt": "0.090909091",
         "delOpt": "1",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "112": {
         "id": "112",
         "immOpt": "6.25",
         "delOpt": "10",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "113": {
         "id": "113",
         "immOpt": "4.545454545",
         "delOpt": "5",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "114": {
         "id": "114",
         "immOpt": "18.18181818",
         "delOpt": "20",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "115": {
         "id": "115",
         "immOpt": "3.333333333",
         "delOpt": "10",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "116": {
         "id": "116",
         "immOpt": "10",
         "delOpt": "20",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "117": {
         "id": "117",
         "immOpt": "6.666666667",
         "delOpt": "20",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "118": {
         "id": "118",
         "immOpt": "8.333333333",
         "delOpt": "10",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "119": {
         "id": "119",
         "immOpt": "4",
         "delOpt": "10",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "120": {
         "id": "120",
         "immOpt": "0.980392157",
         "delOpt": "1",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "121": {
         "id": "121",
         "immOpt": "0.392156863",
         "delOpt": "20",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "122": {
         "id": "122",
         "immOpt": "6.666666667",
         "delOpt": "20",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "123": {
         "id": "123",
-        "immOpt": "0.625",
+        "immOpt": "625",
         "delOpt": "1",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "124": {
         "id": "124",
         "immOpt": "0.098039216",
         "delOpt": "5",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "125": {
         "id": "125",
         "immOpt": "0.238095238",
         "delOpt": "5",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "126": {
         "id": "126",
         "immOpt": "0.769230769",
         "delOpt": "1",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "127": {
         "id": "127",
         "immOpt": "7.692307692",
         "delOpt": "10",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "128": {
         "id": "128",
         "immOpt": "6.666666667",
         "delOpt": "10",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "129": {
         "id": "129",
         "immOpt": "0.5",
         "delOpt": "1",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "130": {
         "id": "130",
         "immOpt": "0.032258065",
         "delOpt": "1",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "131": {
         "id": "131",
         "immOpt": "0.909090909",
         "delOpt": "1",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "132": {
         "id": "132",
         "immOpt": "1.818181818",
         "delOpt": "20",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "133": {
         "id": "133",
         "immOpt": "0.166666667",
         "delOpt": "1",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "134": {
         "id": "134",
         "immOpt": "0.3125",
         "delOpt": "5",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "135": {
         "id": "135",
         "immOpt": "4.545454545",
         "delOpt": "5",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "136": {
         "id": "136",
         "immOpt": "10",
         "delOpt": "20",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "137": {
         "id": "137",
         "immOpt": "2",
         "delOpt": "5",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "138": {
         "id": "138",
         "immOpt": "8",
         "delOpt": "20",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "139": {
         "id": "139",
         "immOpt": "0.99009901",
         "delOpt": "1",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "140": {
         "id": "140",
         "immOpt": "5",
         "delOpt": "10",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "141": {
         "id": "141",
         "immOpt": "0.081967213",
         "delOpt": "5",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "142": {
         "id": "142",
         "immOpt": "1.428571429",
         "delOpt": "5",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "143": {
         "id": "143",
         "immOpt": "3.333333333",
         "delOpt": "5",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "144": {
         "id": "144",
         "immOpt": "1.666666667",
         "delOpt": "5",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "145": {
         "id": "145",
         "immOpt": "19.04761905",
         "delOpt": "20",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "146": {
         "id": "146",
         "immOpt": "9.803921569",
         "delOpt": "10",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "147": {
         "id": "147",
         "immOpt": "2.5",
         "delOpt": "10",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "148": {
         "id": "148",
         "immOpt": "13.33333333",
         "delOpt": "20",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "149": {
         "id": "149",
         "immOpt": "0.196078431",
         "delOpt": "10",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "150": {
         "id": "150",
         "immOpt": "7.692307692",
         "delOpt": "10",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "151": {
         "id": "151",
         "immOpt": "15.38461538",
         "delOpt": "20",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "152": {
         "id": "152",
         "immOpt": "3.846153846",
         "delOpt": "5",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "153": {
         "id": "153",
         "immOpt": "0.666666667",
         "delOpt": "1",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "154": {
         "id": "154",
         "immOpt": "0.066225166",
         "delOpt": "10",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "155": {
         "id": "155",
         "immOpt": "0.163934426",
         "delOpt": "10",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "156": {
         "id": "156",
         "immOpt": "8",
         "delOpt": "20",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "157": {
         "id": "157",
         "immOpt": "9.708737864",
         "delOpt": "10",
-        "delay": "3"
+        "delay": "3",
+        "task": "reward"
     },
     "158": {
         "id": "158",
         "immOpt": "2.857142857",
         "delOpt": "20",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "159": {
         "id": "159",
         "immOpt": "0.166666667",
         "delOpt": "1",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "160": {
         "id": "160",
         "immOpt": "1.25",
         "delOpt": "5",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "161": {
         "id": "161",
         "immOpt": "18.18181818",
         "delOpt": "20",
-        "delay": "1"
+        "delay": "1",
+        "task": "reward"
     },
     "162": {
         "id": "162",
         "immOpt": "4.166666667",
         "delOpt": "5",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "163": {
         "id": "163",
         "immOpt": "0.142857143",
         "delOpt": "1",
-        "delay": "2"
+        "delay": "2",
+        "task": "reward"
     },
     "164": {
         "id": "164",
         "immOpt": "16.66666667",
         "delOpt": "20",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
     },
     "165": {
         "id": "165",
         "immOpt": "3.333333333",
         "delOpt": "20",
-        "delay": "5"
+        "delay": "5",
+        "task": "reward"
     },
     "166": {
         "id": "166",
         "immOpt": "0.090909091",
         "delOpt": "1",
-        "delay": "10"
+        "delay": "10",
+        "task": "reward"
     },
     "167": {
         "id": "167",
         "immOpt": "0.0625",
         "delOpt": "1",
-        "delay": "50"
+        "delay": "50",
+        "task": "reward"
     },
     "168": {
         "id": "168",
         "immOpt": "0.714285714",
         "delOpt": "5",
-        "delay": "20"
+        "delay": "20",
+        "task": "reward"
+    },
+    "169": {
+        "id": "169",
+        "immOpt": "19.60784314",
+        "delOpt": "20",
+        "delay": "2",
+        "task": "loss"
+    },
+    "170": {
+        "id": "170",
+        "immOpt": "1.666666667",
+        "delOpt": "10",
+        "delay": "5",
+        "task": "loss"
+    },
+    "171": {
+        "id": "171",
+        "immOpt": "3.333333333",
+        "delOpt": "20",
+        "delay": "10",
+        "task": "loss"
+    },
+    "172": {
+        "id": "172",
+        "immOpt": "0.4",
+        "delOpt": "1",
+        "delay": "3",
+        "task": "loss"
+    },
+    "173": {
+        "id": "173",
+        "immOpt": "4",
+        "delOpt": "10",
+        "delay": "3",
+        "task": "loss"
+    },
+    "174": {
+        "id": "174",
+        "immOpt": "1.428571429",
+        "delOpt": "10",
+        "delay": "20",
+        "task": "loss"
+    },
+    "175": {
+        "id": "175",
+        "immOpt": "0.833333333",
+        "delOpt": "5",
+        "delay": "10",
+        "task": "loss"
+    },
+    "176": {
+        "id": "176",
+        "immOpt": "1.666666667",
+        "delOpt": "10",
+        "delay": "10",
+        "task": "loss"
+    },
+    "177": {
+        "id": "177",
+        "immOpt": "0.909090909",
+        "delOpt": "1",
+        "delay": "10",
+        "task": "loss"
+    },
+    "178": {
+        "id": "178",
+        "immOpt": "6.666666667",
+        "delOpt": "10",
+        "delay": "50",
+        "task": "loss"
+    },
+    "179": {
+        "id": "179",
+        "immOpt": "19.41747573",
+        "delOpt": "20",
+        "delay": "3",
+        "task": "loss"
+    },
+    "180": {
+        "id": "180",
+        "immOpt": "0.1",
+        "delOpt": "1",
+        "delay": "3",
+        "task": "loss"
+    },
+    "181": {
+        "id": "181",
+        "immOpt": "0.384615385",
+        "delOpt": "10",
+        "delay": "50",
+        "task": "loss"
+    },
+    "182": {
+        "id": "182",
+        "immOpt": "0.192307692",
+        "delOpt": "5",
+        "delay": "50",
+        "task": "loss"
+    },
+    "183": {
+        "id": "183",
+        "immOpt": "0.4",
+        "delOpt": "1",
+        "delay": "5",
+        "task": "loss"
+    },
+    "184": {
+        "id": "184",
+        "immOpt": "8.333333333",
+        "delOpt": "10",
+        "delay": "2",
+        "task": "loss"
+    },
+    "185": {
+        "id": "185",
+        "immOpt": "3.333333333",
+        "delOpt": "5",
+        "delay": "50",
+        "task": "loss"
+    },
+    "186": {
+        "id": "186",
+        "immOpt": "2.5",
+        "delOpt": "5",
+        "delay": "1",
+        "task": "loss"
+    },
+    "187": {
+        "id": "187",
+        "immOpt": "4.901960784",
+        "delOpt": "5",
+        "delay": "2",
+        "task": "loss"
+    },
+    "188": {
+        "id": "188",
+        "immOpt": "0.333333333",
+        "delOpt": "1",
+        "delay": "2",
+        "task": "loss"
+    },
+    "189": {
+        "id": "189",
+        "immOpt": "0.64516129",
+        "delOpt": "20",
+        "delay": "10",
+        "task": "loss"
+    },
+    "190": {
+        "id": "190",
+        "immOpt": "0.909090909",
+        "delOpt": "10",
+        "delay": "20",
+        "task": "loss"
+    },
+    "191": {
+        "id": "191",
+        "immOpt": "0.166666667",
+        "delOpt": "1",
+        "delay": "5",
+        "task": "loss"
+    },
+    "192": {
+        "id": "192",
+        "immOpt": "1.25",
+        "delOpt": "20",
+        "delay": "50",
+        "task": "loss"
+    },
+    "193": {
+        "id": "193",
+        "immOpt": "0.526315789",
+        "delOpt": "1",
+        "delay": "3",
+        "task": "loss"
+    },
+    "194": {
+        "id": "194",
+        "immOpt": "0.454545455",
+        "delOpt": "5",
+        "delay": "10",
+        "task": "loss"
+    },
+    "195": {
+        "id": "195",
+        "immOpt": "12.5",
+        "delOpt": "20",
+        "delay": "2",
+        "task": "loss"
+    },
+    "196": {
+        "id": "196",
+        "immOpt": "3.333333333",
+        "delOpt": "5",
+        "delay": "1",
+        "task": "loss"
+    },
+    "197": {
+        "id": "197",
+        "immOpt": "0.769230769",
+        "delOpt": "20",
+        "delay": "50",
+        "task": "loss"
+    },
+    "198": {
+        "id": "198",
+        "immOpt": "5.263157895",
+        "delOpt": "10",
+        "delay": "3",
+        "task": "loss"
+    },
+    "199": {
+        "id": "199",
+        "immOpt": "0.833333333",
+        "delOpt": "5",
+        "delay": "5",
+        "task": "loss"
+    },
+    "200": {
+        "id": "200",
+        "immOpt": "0.666666667",
+        "delOpt": "1",
+        "delay": "5",
+        "task": "loss"
+    },
+    "201": {
+        "id": "201",
+        "immOpt": "4.854368932",
+        "delOpt": "5",
+        "delay": "3",
+        "task": "loss"
+    },
+    "202": {
+        "id": "202",
+        "immOpt": "2.631578947",
+        "delOpt": "5",
+        "delay": "3",
+        "task": "loss"
+    },
+    "203": {
+        "id": "203",
+        "immOpt": "2",
+        "delOpt": "20",
+        "delay": "3",
+        "task": "loss"
+    },
+    "204": {
+        "id": "204",
+        "immOpt": "16.66666667",
+        "delOpt": "20",
+        "delay": "2",
+        "task": "loss"
+    },
+    "205": {
+        "id": "205",
+        "immOpt": "0.833333333",
+        "delOpt": "1",
+        "delay": "20",
+        "task": "loss"
+    },
+    "206": {
+        "id": "206",
+        "immOpt": "0.5",
+        "delOpt": "1",
+        "delay": "10",
+        "task": "loss"
+    },
+    "207": {
+        "id": "207",
+        "immOpt": "0.161290323",
+        "delOpt": "5",
+        "delay": "10",
+        "task": "loss"
+    },
+    "208": {
+        "id": "208",
+        "immOpt": "5",
+        "delOpt": "10",
+        "delay": "1",
+        "task": "loss"
+    },
+    "209": {
+        "id": "209",
+        "immOpt": "10",
+        "delOpt": "20",
+        "delay": "1",
+        "task": "loss"
+    },
+    "210": {
+        "id": "210",
+        "immOpt": "2.857142857",
+        "delOpt": "10",
+        "delay": "5",
+        "task": "loss"
+    },
+    "211": {
+        "id": "211",
+        "immOpt": "1.428571429",
+        "delOpt": "10",
+        "delay": "2",
+        "task": "loss"
+    },
+    "212": {
+        "id": "212",
+        "immOpt": "2.5",
+        "delOpt": "10",
+        "delay": "1",
+        "task": "loss"
+    },
+    "213": {
+        "id": "213",
+        "immOpt": "3125",
+        "delOpt": "5",
+        "delay": "2",
+        "task": "loss"
+    },
+    "214": {
+        "id": "214",
+        "immOpt": "0.019607843",
+        "delOpt": "1",
+        "delay": "50",
+        "task": "loss"
+    },
+    "215": {
+        "id": "215",
+        "immOpt": "0.714285714",
+        "delOpt": "5",
+        "delay": "2",
+        "task": "loss"
+    },
+    "216": {
+        "id": "216",
+        "immOpt": "13.33333333",
+        "delOpt": "20",
+        "delay": "5",
+        "task": "loss"
+    },
+    "217": {
+        "id": "217",
+        "immOpt": "0.006622517",
+        "delOpt": "1",
+        "delay": "50",
+        "task": "loss"
+    },
+    "218": {
+        "id": "218",
+        "immOpt": "0.769230769",
+        "delOpt": "1",
+        "delay": "1",
+        "task": "loss"
+    },
+    "219": {
+        "id": "219",
+        "immOpt": "0.142857143",
+        "delOpt": "1",
+        "delay": "20",
+        "task": "loss"
+    },
+    "220": {
+        "id": "220",
+        "immOpt": "3.333333333",
+        "delOpt": "10",
+        "delay": "20",
+        "task": "loss"
+    },
+    "221": {
+        "id": "221",
+        "immOpt": "0.047619048",
+        "delOpt": "1",
+        "delay": "20",
+        "task": "loss"
+    },
+    "222": {
+        "id": "222",
+        "immOpt": "0.970873786",
+        "delOpt": "1",
+        "delay": "3",
+        "task": "loss"
+    },
+    "223": {
+        "id": "223",
+        "immOpt": "15.38461538",
+        "delOpt": "20",
+        "delay": "3",
+        "task": "loss"
+    },
+    "224": {
+        "id": "224",
+        "immOpt": "0.5",
+        "delOpt": "5",
+        "delay": "3",
+        "task": "loss"
+    },
+    "225": {
+        "id": "225",
+        "immOpt": "625",
+        "delOpt": "10",
+        "delay": "50",
+        "task": "loss"
+    },
+    "226": {
+        "id": "226",
+        "immOpt": "2.5",
+        "delOpt": "5",
+        "delay": "10",
+        "task": "loss"
+    },
+    "227": {
+        "id": "227",
+        "immOpt": "2.857142857",
+        "delOpt": "20",
+        "delay": "20",
+        "task": "loss"
+    },
+    "228": {
+        "id": "228",
+        "immOpt": "2.5",
+        "delOpt": "10",
+        "delay": "3",
+        "task": "loss"
+    },
+    "229": {
+        "id": "229",
+        "immOpt": "6.666666667",
+        "delOpt": "10",
+        "delay": "1",
+        "task": "loss"
+    },
+    "230": {
+        "id": "230",
+        "immOpt": "0.285714286",
+        "delOpt": "1",
+        "delay": "5",
+        "task": "loss"
+    },
+    "231": {
+        "id": "231",
+        "immOpt": "9.090909091",
+        "delOpt": "10",
+        "delay": "1",
+        "task": "loss"
+    },
+    "232": {
+        "id": "232",
+        "immOpt": "0.3125",
+        "delOpt": "5",
+        "delay": "50",
+        "task": "loss"
+    },
+    "233": {
+        "id": "233",
+        "immOpt": "0.25",
+        "delOpt": "1",
+        "delay": "1",
+        "task": "loss"
+    },
+    "234": {
+        "id": "234",
+        "immOpt": "0.952380952",
+        "delOpt": "20",
+        "delay": "20",
+        "task": "loss"
+    },
+    "235": {
+        "id": "235",
+        "immOpt": "0.833333333",
+        "delOpt": "5",
+        "delay": "50",
+        "task": "loss"
+    },
+    "236": {
+        "id": "236",
+        "immOpt": "0.666666667",
+        "delOpt": "1",
+        "delay": "50",
+        "task": "loss"
+    },
+    "237": {
+        "id": "237",
+        "immOpt": "1.666666667",
+        "delOpt": "10",
+        "delay": "50",
+        "task": "loss"
+    },
+    "238": {
+        "id": "238",
+        "immOpt": "3.333333333",
+        "delOpt": "20",
+        "delay": "50",
+        "task": "loss"
+    },
+    "239": {
+        "id": "239",
+        "immOpt": "0.909090909",
+        "delOpt": "10",
+        "delay": "10",
+        "task": "loss"
+    },
+    "240": {
+        "id": "240",
+        "immOpt": "0.25",
+        "delOpt": "1",
+        "delay": "10",
+        "task": "loss"
+    },
+    "241": {
+        "id": "241",
+        "immOpt": "0.327868852",
+        "delOpt": "20",
+        "delay": "20",
+        "task": "loss"
+    },
+    "242": {
+        "id": "242",
+        "immOpt": "0.5",
+        "delOpt": "1",
+        "delay": "2",
+        "task": "loss"
+    },
+    "243": {
+        "id": "243",
+        "immOpt": "625",
+        "delOpt": "10",
+        "delay": "5",
+        "task": "loss"
+    },
+    "244": {
+        "id": "244",
+        "immOpt": "0.132450331",
+        "delOpt": "20",
+        "delay": "50",
+        "task": "loss"
+    },
+    "245": {
+        "id": "245",
+        "immOpt": "0.016393443",
+        "delOpt": "1",
+        "delay": "20",
+        "task": "loss"
+    },
+    "246": {
+        "id": "246",
+        "immOpt": "1.25",
+        "delOpt": "5",
+        "delay": "3",
+        "task": "loss"
+    },
+    "247": {
+        "id": "247",
+        "immOpt": "0.833333333",
+        "delOpt": "1",
+        "delay": "2",
+        "task": "loss"
+    },
+    "248": {
+        "id": "248",
+        "immOpt": "2",
+        "delOpt": "5",
+        "delay": "3",
+        "task": "loss"
+    },
+    "249": {
+        "id": "249",
+        "immOpt": "9.090909091",
+        "delOpt": "10",
+        "delay": "10",
+        "task": "loss"
+    },
+    "250": {
+        "id": "250",
+        "immOpt": "5",
+        "delOpt": "20",
+        "delay": "1",
+        "task": "loss"
+    },
+    "251": {
+        "id": "251",
+        "immOpt": "5",
+        "delOpt": "20",
+        "delay": "10",
+        "task": "loss"
+    },
+    "252": {
+        "id": "252",
+        "immOpt": "9.900990099",
+        "delOpt": "10",
+        "delay": "1",
+        "task": "loss"
+    },
+    "253": {
+        "id": "253",
+        "immOpt": "4.166666667",
+        "delOpt": "5",
+        "delay": "20",
+        "task": "loss"
+    },
+    "254": {
+        "id": "254",
+        "immOpt": "0.476190476",
+        "delOpt": "10",
+        "delay": "20",
+        "task": "loss"
+    },
+    "255": {
+        "id": "255",
+        "immOpt": "0.333333333",
+        "delOpt": "1",
+        "delay": "20",
+        "task": "loss"
+    },
+    "256": {
+        "id": "256",
+        "immOpt": "1.666666667",
+        "delOpt": "5",
+        "delay": "20",
+        "task": "loss"
+    },
+    "257": {
+        "id": "257",
+        "immOpt": "0.952380952",
+        "delOpt": "1",
+        "delay": "5",
+        "task": "loss"
+    },
+    "258": {
+        "id": "258",
+        "immOpt": "5.714285714",
+        "delOpt": "20",
+        "delay": "5",
+        "task": "loss"
+    },
+    "259": {
+        "id": "259",
+        "immOpt": "5",
+        "delOpt": "10",
+        "delay": "2",
+        "task": "loss"
+    },
+    "260": {
+        "id": "260",
+        "immOpt": "10.52631579",
+        "delOpt": "20",
+        "delay": "3",
+        "task": "loss"
+    },
+    "261": {
+        "id": "261",
+        "immOpt": "1",
+        "delOpt": "10",
+        "delay": "3",
+        "task": "loss"
+    },
+    "262": {
+        "id": "262",
+        "immOpt": "0.454545455",
+        "delOpt": "5",
+        "delay": "20",
+        "task": "loss"
+    },
+    "263": {
+        "id": "263",
+        "immOpt": "0.322580645",
+        "delOpt": "10",
+        "delay": "10",
+        "task": "loss"
+    },
+    "264": {
+        "id": "264",
+        "immOpt": "2.5",
+        "delOpt": "5",
+        "delay": "2",
+        "task": "loss"
+    },
+    "265": {
+        "id": "265",
+        "immOpt": "0.038461538",
+        "delOpt": "1",
+        "delay": "50",
+        "task": "loss"
+    },
+    "266": {
+        "id": "266",
+        "immOpt": "4.95049505",
+        "delOpt": "5",
+        "delay": "1",
+        "task": "loss"
+    },
+    "267": {
+        "id": "267",
+        "immOpt": "13.33333333",
+        "delOpt": "20",
+        "delay": "50",
+        "task": "loss"
+    },
+    "268": {
+        "id": "268",
+        "immOpt": "0.0625",
+        "delOpt": "1",
+        "delay": "5",
+        "task": "loss"
+    },
+    "269": {
+        "id": "269",
+        "immOpt": "4.761904762",
+        "delOpt": "5",
+        "delay": "5",
+        "task": "loss"
+    },
+    "270": {
+        "id": "270",
+        "immOpt": "19.8019802",
+        "delOpt": "20",
+        "delay": "1",
+        "task": "loss"
+    },
+    "271": {
+        "id": "271",
+        "immOpt": "0.25",
+        "delOpt": "1",
+        "delay": "3",
+        "task": "loss"
+    },
+    "272": {
+        "id": "272",
+        "immOpt": "1.25",
+        "delOpt": "20",
+        "delay": "5",
+        "task": "loss"
+    },
+    "273": {
+        "id": "273",
+        "immOpt": "9.523809524",
+        "delOpt": "10",
+        "delay": "5",
+        "task": "loss"
+    },
+    "274": {
+        "id": "274",
+        "immOpt": "0.033112583",
+        "delOpt": "5",
+        "delay": "50",
+        "task": "loss"
+    },
+    "275": {
+        "id": "275",
+        "immOpt": "1.25",
+        "delOpt": "5",
+        "delay": "10",
+        "task": "loss"
+    },
+    "276": {
+        "id": "276",
+        "immOpt": "1.818181818",
+        "delOpt": "20",
+        "delay": "10",
+        "task": "loss"
+    },
+    "277": {
+        "id": "277",
+        "immOpt": "5",
+        "delOpt": "20",
+        "delay": "3",
+        "task": "loss"
+    },
+    "278": {
+        "id": "278",
+        "immOpt": "3.846153846",
+        "delOpt": "5",
+        "delay": "1",
+        "task": "loss"
+    },
+    "279": {
+        "id": "279",
+        "immOpt": "0.090909091",
+        "delOpt": "1",
+        "delay": "20",
+        "task": "loss"
+    },
+    "280": {
+        "id": "280",
+        "immOpt": "6.25",
+        "delOpt": "10",
+        "delay": "2",
+        "task": "loss"
+    },
+    "281": {
+        "id": "281",
+        "immOpt": "4.545454545",
+        "delOpt": "5",
+        "delay": "1",
+        "task": "loss"
+    },
+    "282": {
+        "id": "282",
+        "immOpt": "18.18181818",
+        "delOpt": "20",
+        "delay": "10",
+        "task": "loss"
+    },
+    "283": {
+        "id": "283",
+        "immOpt": "3.333333333",
+        "delOpt": "10",
+        "delay": "2",
+        "task": "loss"
+    },
+    "284": {
+        "id": "284",
+        "immOpt": "10",
+        "delOpt": "20",
+        "delay": "2",
+        "task": "loss"
+    },
+    "285": {
+        "id": "285",
+        "immOpt": "6.666666667",
+        "delOpt": "20",
+        "delay": "20",
+        "task": "loss"
+    },
+    "286": {
+        "id": "286",
+        "immOpt": "8.333333333",
+        "delOpt": "10",
+        "delay": "20",
+        "task": "loss"
+    },
+    "287": {
+        "id": "287",
+        "immOpt": "4",
+        "delOpt": "10",
+        "delay": "5",
+        "task": "loss"
+    },
+    "288": {
+        "id": "288",
+        "immOpt": "0.980392157",
+        "delOpt": "1",
+        "delay": "2",
+        "task": "loss"
+    },
+    "289": {
+        "id": "289",
+        "immOpt": "0.392156863",
+        "delOpt": "20",
+        "delay": "50",
+        "task": "loss"
+    },
+    "290": {
+        "id": "290",
+        "immOpt": "6.666666667",
+        "delOpt": "20",
+        "delay": "2",
+        "task": "loss"
+    },
+    "291": {
+        "id": "291",
+        "immOpt": "625",
+        "delOpt": "1",
+        "delay": "2",
+        "task": "loss"
+    },
+    "292": {
+        "id": "292",
+        "immOpt": "0.098039216",
+        "delOpt": "5",
+        "delay": "50",
+        "task": "loss"
+    },
+    "293": {
+        "id": "293",
+        "immOpt": "0.238095238",
+        "delOpt": "5",
+        "delay": "20",
+        "task": "loss"
+    },
+    "294": {
+        "id": "294",
+        "immOpt": "0.769230769",
+        "delOpt": "1",
+        "delay": "3",
+        "task": "loss"
+    },
+    "295": {
+        "id": "295",
+        "immOpt": "7.692307692",
+        "delOpt": "10",
+        "delay": "3",
+        "task": "loss"
+    },
+    "296": {
+        "id": "296",
+        "immOpt": "6.666666667",
+        "delOpt": "10",
+        "delay": "5",
+        "task": "loss"
+    },
+    "297": {
+        "id": "297",
+        "immOpt": "0.5",
+        "delOpt": "1",
+        "delay": "1",
+        "task": "loss"
+    },
+    "298": {
+        "id": "298",
+        "immOpt": "0.032258065",
+        "delOpt": "1",
+        "delay": "10",
+        "task": "loss"
+    },
+    "299": {
+        "id": "299",
+        "immOpt": "0.909090909",
+        "delOpt": "1",
+        "delay": "1",
+        "task": "loss"
+    },
+    "300": {
+        "id": "300",
+        "immOpt": "1.818181818",
+        "delOpt": "20",
+        "delay": "20",
+        "task": "loss"
+    },
+    "301": {
+        "id": "301",
+        "immOpt": "0.166666667",
+        "delOpt": "1",
+        "delay": "50",
+        "task": "loss"
+    },
+    "302": {
+        "id": "302",
+        "immOpt": "0.3125",
+        "delOpt": "5",
+        "delay": "5",
+        "task": "loss"
+    },
+    "303": {
+        "id": "303",
+        "immOpt": "4.545454545",
+        "delOpt": "5",
+        "delay": "10",
+        "task": "loss"
+    },
+    "304": {
+        "id": "304",
+        "immOpt": "10",
+        "delOpt": "20",
+        "delay": "10",
+        "task": "loss"
+    },
+    "305": {
+        "id": "305",
+        "immOpt": "2",
+        "delOpt": "5",
+        "delay": "5",
+        "task": "loss"
+    },
+    "306": {
+        "id": "306",
+        "immOpt": "8",
+        "delOpt": "20",
+        "delay": "3",
+        "task": "loss"
+    },
+    "307": {
+        "id": "307",
+        "immOpt": "0.99009901",
+        "delOpt": "1",
+        "delay": "1",
+        "task": "loss"
+    },
+    "308": {
+        "id": "308",
+        "immOpt": "5",
+        "delOpt": "10",
+        "delay": "10",
+        "task": "loss"
+    },
+    "309": {
+        "id": "309",
+        "immOpt": "0.081967213",
+        "delOpt": "5",
+        "delay": "20",
+        "task": "loss"
+    },
+    "310": {
+        "id": "310",
+        "immOpt": "1.428571429",
+        "delOpt": "5",
+        "delay": "5",
+        "task": "loss"
+    },
+    "311": {
+        "id": "311",
+        "immOpt": "3.333333333",
+        "delOpt": "5",
+        "delay": "5",
+        "task": "loss"
+    },
+    "312": {
+        "id": "312",
+        "immOpt": "1.666666667",
+        "delOpt": "5",
+        "delay": "2",
+        "task": "loss"
+    },
+    "313": {
+        "id": "313",
+        "immOpt": "19.04761905",
+        "delOpt": "20",
+        "delay": "5",
+        "task": "loss"
+    },
+    "314": {
+        "id": "314",
+        "immOpt": "9.803921569",
+        "delOpt": "10",
+        "delay": "2",
+        "task": "loss"
+    },
+    "315": {
+        "id": "315",
+        "immOpt": "2.5",
+        "delOpt": "10",
+        "delay": "10",
+        "task": "loss"
+    },
+    "316": {
+        "id": "316",
+        "immOpt": "13.33333333",
+        "delOpt": "20",
+        "delay": "1",
+        "task": "loss"
+    },
+    "317": {
+        "id": "317",
+        "immOpt": "0.196078431",
+        "delOpt": "10",
+        "delay": "50",
+        "task": "loss"
+    },
+    "318": {
+        "id": "318",
+        "immOpt": "7.692307692",
+        "delOpt": "10",
+        "delay": "1",
+        "task": "loss"
+    },
+    "319": {
+        "id": "319",
+        "immOpt": "15.38461538",
+        "delOpt": "20",
+        "delay": "1",
+        "task": "loss"
+    },
+    "320": {
+        "id": "320",
+        "immOpt": "3.846153846",
+        "delOpt": "5",
+        "delay": "3",
+        "task": "loss"
+    },
+    "321": {
+        "id": "321",
+        "immOpt": "0.666666667",
+        "delOpt": "1",
+        "delay": "1",
+        "task": "loss"
+    },
+    "322": {
+        "id": "322",
+        "immOpt": "0.066225166",
+        "delOpt": "10",
+        "delay": "50",
+        "task": "loss"
+    },
+    "323": {
+        "id": "323",
+        "immOpt": "0.163934426",
+        "delOpt": "10",
+        "delay": "20",
+        "task": "loss"
+    },
+    "324": {
+        "id": "324",
+        "immOpt": "8",
+        "delOpt": "20",
+        "delay": "5",
+        "task": "loss"
+    },
+    "325": {
+        "id": "325",
+        "immOpt": "9.708737864",
+        "delOpt": "10",
+        "delay": "3",
+        "task": "loss"
+    },
+    "326": {
+        "id": "326",
+        "immOpt": "2.857142857",
+        "delOpt": "20",
+        "delay": "2",
+        "task": "loss"
+    },
+    "327": {
+        "id": "327",
+        "immOpt": "0.166666667",
+        "delOpt": "1",
+        "delay": "10",
+        "task": "loss"
+    },
+    "328": {
+        "id": "328",
+        "immOpt": "1.25",
+        "delOpt": "5",
+        "delay": "1",
+        "task": "loss"
+    },
+    "329": {
+        "id": "329",
+        "immOpt": "18.18181818",
+        "delOpt": "20",
+        "delay": "1",
+        "task": "loss"
+    },
+    "330": {
+        "id": "330",
+        "immOpt": "4.166666667",
+        "delOpt": "5",
+        "delay": "2",
+        "task": "loss"
+    },
+    "331": {
+        "id": "331",
+        "immOpt": "0.142857143",
+        "delOpt": "1",
+        "delay": "2",
+        "task": "loss"
+    },
+    "332": {
+        "id": "332",
+        "immOpt": "16.66666667",
+        "delOpt": "20",
+        "delay": "20",
+        "task": "loss"
+    },
+    "333": {
+        "id": "333",
+        "immOpt": "3.333333333",
+        "delOpt": "20",
+        "delay": "5",
+        "task": "loss"
+    },
+    "334": {
+        "id": "334",
+        "immOpt": "0.090909091",
+        "delOpt": "1",
+        "delay": "10",
+        "task": "loss"
+    },
+    "335": {
+        "id": "335",
+        "immOpt": "0.0625",
+        "delOpt": "1",
+        "delay": "50",
+        "task": "loss"
+    },
+    "336": {
+        "id": "336",
+        "immOpt": "0.714285714",
+        "delOpt": "5",
+        "delay": "20",
+        "task": "loss"
     }
 }

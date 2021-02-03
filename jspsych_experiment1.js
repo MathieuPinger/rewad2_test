@@ -87,6 +87,7 @@ function createTimeline(trialArray) {
                 immOpt: trial.immOpt,
                 delOpt: trial.delOpt,
                 delay: trial.delay,
+                task: trial.task,
                 randomize: trial.rando
             }
         }
@@ -168,12 +169,12 @@ function run2FC(trialTimeline) {
 
                     if(lastChoice == 81){
                         trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
-                            leftStyle = feedbackStyle);
+                            feedback='left');
                         return trialFeedback
 
                     } else if(lastChoice == 80) {
                         trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
-                            leftStyle = undefined, rightStyle = feedbackStyle);
+                            feedback='right');
                         return trialFeedback
 
                     } else {
@@ -258,12 +259,12 @@ function run2FC(trialTimeline) {
 
                     if(lastChoice == 81){
                         trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
-                            leftStyle = feedbackStyle);
+                            feedback='left');
                         return trialFeedback
 
                     } else if(lastChoice == 80) {
                         trialFeedback = constructStim(lastRando, lastImmOpt, lastDelOpt, lastDelay,
-                            leftStyle = undefined, rightStyle = feedbackStyle);
+                            feedback='right');
                         return trialFeedback
 
                     } else {
@@ -323,9 +324,11 @@ function saveData(data) {
 // constructor function for html stimulus
 let feedbackStyle = 'style="border: thick solid  #008000;"';
 
-function constructStim(rando, immOpt, delOpt, delay, leftStyle, rightStyle) {
+function constructStim(rando, immOpt, delOpt, delay, feedback) {
     // rando = randomize left/right presentation
     // if rando == 0 -> immediate left, else right
+    // feedbackstyle for feedback left or right
+    let feedbackStyle = 'style="border: thick solid  #008000;"';
     let stimString = `<div class = centerbox id='container'>
     <p class = center-block-text>
         Please select the option that you would prefer pressing
@@ -334,16 +337,18 @@ function constructStim(rando, immOpt, delOpt, delay, leftStyle, rightStyle) {
     </p>
     <div class='table'>
     <div class='row'>
-    <div class = 'option' id='leftOption' ${leftStyle || null}><center><font color='green'>
+    <div class = 'option' id='leftOption' ${feedback=='left' ? feedbackStyle : null}>
+        <center><font color='green'>
         ${rando==0 ? immOpt : delOpt} €
-    <br>
+        <br>
         ${rando==0 ? 'Today' : `in ${delay} days`}
-    </font></center></div>
-    <div class = 'option' id='rightOption' ${rightStyle || null}><center><font color='green'>
+        </font></center></div>
+    <div class = 'option' id='rightOption' ${feedback=='right' ? feedbackStyle : null}>
+        <center><font color='green'>
         ${rando==0 ? delOpt : immOpt} €
-    <br>
+        <br>
         ${rando==0 ? `in ${delay} days` : 'Today'}
-    </font></center></div></div></div></div>`;
+        </font></center></div></div></div></div>`;
         return stimString;
 };
 

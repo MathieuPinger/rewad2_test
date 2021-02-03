@@ -13,7 +13,7 @@ def make_json(csvFilePath, jsonFilePath):
       
     # Open a csv reader called DictReader 
     with open(csvFilePath, encoding='utf-8') as csvf: 
-        csvReader = csv.DictReader(csvf, delimiter=';') 
+        csvReader = csv.DictReader(csvf, delimiter=',') 
           
         # Convert each row into a dictionary  
         # and add it to data 
