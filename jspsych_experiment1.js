@@ -293,12 +293,13 @@ function run2FC(trialTimeline) {
         minimum_valid_rt: 200,
         on_finish: function() {
             // save only trial data, not feedback
-            dataToSave = jsPsych.data.get().filter({timelineType: "trial"}).csv();
+            let dataToSave = jsPsych.data.get().filter({timelineType: "trial"}).csv();
             saveData(dataToSave);
             //jsPsych.data.displayData('json');
         },
         on_close: function(){
-            saveData(jsPsych.data.get().csv())
+            let dataToSave = jsPsych.data.get().filter({timelineType: "trial"}).csv();
+            saveData(dataToSave);
         }
     });
 };

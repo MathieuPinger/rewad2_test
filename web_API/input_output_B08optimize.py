@@ -1,5 +1,8 @@
 #!C:/Anaconda/python.exe
 
+# change shebang according to system
+###!/usr/lib/python-virtualenvs/rewad/bin/python
+
 # Test script: integrate bevavioral data from website to optimization
 #def main(id):
 # import libraries
@@ -10,8 +13,8 @@ import pandas as pd                         #import data
 import json
 import sys
 
-id = sys.argv[1]
-#id = "qwertzy"
+#id = sys.argv[1]
+id = "mathioe"
 
 # define necessary functions
 #------------------------------------------------------------------------------
@@ -141,7 +144,7 @@ outputxlsx= rootpath + outputfile2
 
 # load data to pandas then convert to numpy arrays
 datain = pd.read_csv(filein)
-datain = datain[["immOpt", "delOpt", "delay", "choice"]]
+datain = datain[["immOpt", "delOpt", "delay", "choice", "task"]]
 
 # drop missing values
 datain = datain.dropna()
@@ -152,40 +155,58 @@ datain = datain.dropna()
 # choice: replace "immediate" with 1 and "delayed" with 2
 datain["choice_relabel"] = datain["choice"].replace({"immediate": 1,
                                                     "delayed": 2})
+# split in loss and reward dfs
+datain_reward = datain[datain["task"] == "reward"]
+datain_loss = datain[datain["task"] == "loss"]
 
-# create input arrays for functions
-r1 = datain[["immOpt"]].to_numpy()
-r2 = datain[["delOpt"]].to_numpy()
-delay = datain[["delay"]].to_numpy()
-a = datain[["choice_relabel"]].to_numpy()
+# Function to estimate parameters for each df
+def estimateParameters(df, task):
+    # create input arrays for functions
+    r1 = df[["immOpt"]].to_numpy()
+    r2 = df[["delOpt"]].to_numpy()
+    delay = df[["delay"]].to_numpy()
+    a = df[["choice_relabel"]].to_numpy()
+    
+    # optimize model and return best param estimates
+    beta, kappa, LL=optimizeModel(delay, r1, r2, a)
+    print("inferred params: beta="+np.str(beta)+ ", kappa="+np.str(kappa)+ ", logL=" + np.str(LL))
+    
+    # generate paradigm B based on these params and given delays and rewards
+    #(note: these also define the # of trials)
+    pars=[kappa, beta]      
+    r2s=[1, 5, 10, 15, 20]          # define delayed rewards used for task B
+    delays=[1, 2, 3, 5, 10, 20, 50] # define delays used for task B
+    delay_B, r1_B, r2_B, p_imm = generateParadigm(delays, r2s, pars)
+    
+    
+    # generate id for trials
+    trials_id = list(range(1, len(delay_B)+1))
+    
+    # pandas dataframe to json
+    delay_B = delay_B.flatten().tolist()
+    r1_B = r1_B.flatten().tolist()
+    r2_B = r2_B.flatten().tolist()
+    p_imm = p_imm.flatten().tolist()
+    
+    outdata_df = pd.DataFrame(
+        {'id': trials_id,
+        'immOpt': r1_B,
+        'delOpt': r2_B,
+        'delay': delay_B,
+        'task': task})
+    
+    return outdata_df
 
-# optimize model and return best param estimates
-beta, kappa, LL=optimizeModel(delay, r1, r2, a)
-print("inferred params: beta="+np.str(beta)+ ", kappa="+np.str(kappa)+ ", logL=" + np.str(LL))
+# generate params for each task and merge to outfile
+params_reward = estimateParameters(datain_reward, "reward")
+params_loss = estimateParameters(datain_loss, "loss")
 
-# generate paradigm B based on these params and given delays and rewards
-#(note: these also define the # of trials)
-pars=[kappa, beta]      
-r2s=[1, 5, 10, 15, 20]          # define delayed rewards used for task B
-delays=[1, 2, 3, 5, 10, 20, 50] # define delays used for task B
-delay_B, r1_B, r2_B, p_imm = generateParadigm(delays, r2s, pars)
+outdata = params_reward.append(params_loss)
 
+# reassign id (unique id)
+outdata.assign(id=outdata.index+1)
 
-# generate id for trials
-trials_id = list(range(1, len(delay_B)+1))
-
-# pandas dataframe to json
-delay_B = delay_B.flatten().tolist()
-r1_B = r1_B.flatten().tolist()
-r2_B = r2_B.flatten().tolist()
-p_imm = p_imm.flatten().tolist()
-
-outdata_df = pd.DataFrame(
-    {'id': trials_id,
-    'immOpt': r1_B,
-    'delOpt': r2_B,
-    'delay': delay_B})
-
+# json format
 outdata = outdata_df.to_json(orient = "index")
 outdata = json.loads(outdata)
 
