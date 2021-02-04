@@ -196,7 +196,8 @@ function run2FC(trialTimeline) {
                 type: 'html-keyboard-response',
                 stimulus: '<div style="font-size:60px;">+</div>',
                 choices: jsPsych.NO_KEYS,
-                trial_duration: 1000,
+                // jitter fixcross between 500 and 1500 ms
+                trial_duration:  Math.random() * (1500-500)+500
               },
         ],
         timeline_variables: [
@@ -292,7 +293,8 @@ function run2FC(trialTimeline) {
                 type: 'html-keyboard-response',
                 stimulus: '<div style="font-size:60px;">+</div>',
                 choices: jsPsych.NO_KEYS,
-                trial_duration: 1000,
+                // jitter fixcross between 500 and 1500 ms
+                trial_duration:  Math.random() * (1500-500)+500
               },
         ],
         timeline_variables: trialTimeline,
