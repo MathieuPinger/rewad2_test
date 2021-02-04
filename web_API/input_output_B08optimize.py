@@ -7,14 +7,14 @@
 #def main(id):
 # import libraries
 import numpy as np                          #scientific computing
-import xlsxwriter
+#import xlsxwriter
 from scipy import optimize
 import pandas as pd                         #import data
 import json
 import sys
 
-#id = sys.argv[1]
-id = "mathioe"
+id = sys.argv[1]
+#id = "hulla"
 
 # define necessary functions
 #------------------------------------------------------------------------------
@@ -133,7 +133,7 @@ def generateParadigm(delays, r2s, pars):
 rootpath = "../data/"
 inputfile= f"{id}_exp1.csv"
 outputfile=f"{id}_params_exp2.json"
-outputfile2=f"{id}_params_exp2_z.xlsx"
+outputfile2=f"{id}_params_exp2_z.csv"
 
 # input file
 filein= rootpath + inputfile
@@ -150,7 +150,7 @@ datain = datain[["immOpt", "delOpt", "delay", "choice", "task"]]
 datain = datain.dropna()
 
 # replace missing values with zero
-#datain = datain.fillna(0)
+datain = datain.fillna(0)
 
 # choice: replace "immediate" with 1 and "delayed" with 2
 datain["choice_relabel"] = datain["choice"].replace({"immediate": 1,
@@ -158,6 +158,10 @@ datain["choice_relabel"] = datain["choice"].replace({"immediate": 1,
 # split in loss and reward dfs
 datain_reward = datain[datain["task"] == "reward"]
 datain_loss = datain[datain["task"] == "loss"]
+
+# use absolute values for loss
+datain_loss = datain_loss.assign(immOpt = -datain_loss['immOpt'])
+datain_loss = datain_loss.assign(delOpt = -datain_loss['delOpt'])
 
 # Function to estimate parameters for each df
 def estimateParameters(df, task):
@@ -193,7 +197,8 @@ def estimateParameters(df, task):
         'immOpt': r1_B,
         'delOpt': r2_B,
         'delay': delay_B,
-        'task': task})
+        'task': task,
+        'p_imm': p_imm})
     
     return outdata_df
 
@@ -201,30 +206,29 @@ def estimateParameters(df, task):
 params_reward = estimateParameters(datain_reward, "reward")
 params_loss = estimateParameters(datain_loss, "loss")
 
+# convert loss values to negative
+params_loss = params_loss.assign(immOpt = -params_loss['immOpt'])
+params_loss = params_loss.assign(delOpt = -params_loss['delOpt'])
+
 outdata = params_reward.append(params_loss)
 
 # reassign id (unique id)
-outdata.assign(id=outdata.index+1)
+outdata['id']=np.arange(len(outdata))+1
+outdata = outdata.set_index('id')
 
-# json format
-outdata = outdata_df.to_json(orient = "index")
-outdata = json.loads(outdata)
+# json format (exclude probabilites for json)
+json_outdata = outdata.drop(['p_imm'], axis = 1)
+json_outdata = outdata.to_json(orient = "index")
+json_outdata = json.loads(json_outdata)
 
 # Open a json writer, and use the json.dumps()  
 # function to dump data 
 with open(outputjson, 'w', encoding='utf-8') as jsonf: 
-    jsonf.write(json.dumps(outdata, indent=4)) 
-    json.dumps(outdata, indent=4)  
+    jsonf.write(json.dumps(json_outdata, indent=4)) 
+    json.dumps(json_outdata, indent=4)  
 
-# Write CSV with added probabilites
-wb = xlsxwriter.Workbook(outputxlsx)
-ws = wb.add_worksheet('my sheet')
-ws.write_row(0, 0, ['immOpt', 'delOpt', 'delay', 'p_imm'])
-
-for i in range(len(delay_B)):
-    ws.write_row(i+1, 0, [r1_B[i],r2_B[i], delay_B[i], p_imm[i]])
-
-wb.close()
+# write csv with added probabilites
+outdata.to_csv(outputxlsx)
 
 # import sys
 # try:
