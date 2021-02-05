@@ -8,21 +8,37 @@
    <script src="jspsych/plugins/jspsych-survey-html-form.js"></script>
    <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
     <link href="jspsych/css/jspsych.css" rel="stylesheet">
-    <style>
 
-    </style>
+    <style>
+    .center {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    height: auto
+    }
+
+    .topright {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25%
+    }
+
+    </style>    
 </head>
 <body>
 <script>
     let timeline = [];
 
     let welcomeText =
-    `<img src='logos/zi-logo-rgb.png' width='350'></img>
-    <p>Welcome to our experiment.</p>
-    <p><b>
+    `<img src='logos/zi-logo-rgb.png' class='topright'></img>
+    <p>
+    <img src='logos/moneyplant.jpg' class='center'</img>
+    <h3>Welcome to our experiment.</h3>
     Whilst completing the experiment, please DO NOT close or refresh your browser window</p>
-    <p>Thank you for your interest in taking part.</p>
-    <p>Please press the button below to begin. </p>`
+    <p>Thank you for your interest in taking part.<br>
+    Please press the button below to get to the next page. </p>`
 
     let welcome = {
         type: "html-button-response",
@@ -73,89 +89,120 @@ var consentForm = {
     </div>
 
     <div>
-        <h1>Information Sheet and to Act as a Research Subject</h1>
+        <h1>Information Sheet for Study Participants</h1>
         <h2>Study Title: <i>Reward and Aversion Discounting</i></h2>
-        <h3>Who is conducting the study? Why have you been asked to participate?
-        How were you selected? What is the approximate number of participants in the study?</h3>
-        <p align='left'>We are scientists from the Clinical Psychology department directed by Prof. Dr. Peter Kirsch 
+        <h3>Who is conducting the study?</h3>
+        <p align='left'>
+        We are scientists from the Department Clinical Psychology directed by Prof. Dr. Peter Kirsch 
         at the Central Institute of Mental Health, Mannheim, Germany. This study aims at developing and 
         validating decision-making tasks with a representative sample of participants. 
         Participants are volunteers who are recruited on survey platforms and who will be reimbursed 
-        for the time taken to complete this study.</p>
+        for the time taken to complete this study.
+        </p>
         
         <h3>Why is this study being done?</h3>
-        <p>We are interested in monetary decision-making. 
-        The primary aim of this study is to find choice patterns in situations where participants 
-        have to decide between smaller immediate and larger delayed monetary wins or losses. 
-        The secondary aim of this study is to explore the relationship between monetary 
-        decision-making and alcohol consumption.</p>
+        <p align='left'>
+        We are investigating how future events influence 
+        decision-making processes. The primary aim of this study is to find choice patterns 
+        in situations where participants have to decide between smaller immediate and larger 
+        delayed monetary wins or losses. Studies have shown that participants with addiction 
+        problems consider future rewards to a lesser degree. In our studies, we wish to 
+        extend this to decisions between aversive options. The study you are participating in 
+        is designed to refine the behavioral tasks that will be used for future studies in our 
+        laboratory. This servers to further understand how aversive and rewarding events 
+        are processed in decisions between immediate and future events.
+        </p>
         
         <h3>What will happen in this study?</h3>
-        <p>If you agree to be in this study, you will complete this experiment online 
-        using your web browser. You will perform multiple blocks of two decision-making 
-        tasks where you have to choose between two imaginary amounts of money: in one task, 
+        <p align='left'>
+        If you agree to be in this study, you will complete the experiment online 
+        using your web browser. On the next pages, the task will be explained in detail.
+        The task consists of two conditions where you have to decide between two <b>imaginary</b> 
+        amounts of money: in one condition, 
         you have to decide between a smaller immediate win or a larger win in the future. 
-        In the other task, you have to decide between a smaller immediate loss or a larger 
+        In the other condition, you have to decide between a smaller immediate loss or a larger 
         loss in the future. The amounts of money and the temporal delay for the future option 
-        (in days) will be varied. After half of the blocks, you will be asked to fill out several 
+        (in days) will be varied. Trials of both conditions will be displayed in random order. 
+        Half-way through the experiment, you will be asked to fill out several 
         questions regarding your demographics, your behavior in specific situations and your 
-        consumption of alcohol.</p>
+        consumption of alcohol.
+        </p>
         
-        <h3>How much time will each study procedure take, what is your total time commitment, 
-        and how long will the study last?</h3>
-        <p>Participation in this experiment will take place over one session and will last 
-        <b>between 30 and 45 minutes</b>.</p>
+        <h3>How long will the study last?</h3>
+        <p align='left'>
+        Participation in this experiment will take place over one session and will last 
+        <b>between 30 and 45 minutes</b>.
+        </p>
+
+        <h3>Will you be compensated for participating in this study?</h3>
+        <p align='left'>
+        In compensation for your time, you will receive <b>£6.50 per hour</b> via Prolific 
+        once you have completed the experiment.
+        Other than the compensation you receive, there is no direct benefit to you from 
+        participating this study. However, you are contributing to scientific progress and 
+        society may benefit from the knowledge that is acquired in this experiment.
+        </p>
         
         <h3>What are the potential risks associated with this study?</h3>
-        <p>Participation in this study is not associated with any risks. 
-        However, you may experience discomforts, e.g. frustration, boredom 
-        and/or fatigue while participating in our study. But if you experience 
-        any discomfort you may withdraw from the experiment at any time by closing the browser.</p>
+        <p align='left'>
+        Participation in this study is not associated with any risks. 
+        If you experience any discomfort you may withdraw from the experiment 
+        at any time by closing the browser.
+        </p>
+
+        <h3>Are there any costs associated with participating in this study?</h3>
+        <p align='left'>
+        There will be no cost to you for participating in this study.
+        </p>
         
         <h3>Who will handle my data and what are their qualifications?</h3>
-        <p>Only the following research staff involved will have access to your 
+        <p align='left'>
+        The following research staff involved will have access to your 
         personal and research data: Prof Dr Peter Kirsch, Dr Georgia Koppe, 
         Dr Janine Thome, Mr Patrick Halli and Mr Mathieu Pinger. This study is part 
         of the Collaborative Research Centre TRR265: Losing and Regaining Control over 
         Drug Intake, a trans-regional collaboration funded by the Germany Research Foundation (DFG).
         For more information, visit 
-        <a href="https://sfb-trr265.charite.de/en/" target="_blank">https://sfb-trr265.charite.de/en/</a>.</p>
+        <a href="https://sfb-trr265.charite.de/en/" target="_blank">https://sfb-trr265.charite.de/en/</a>.
+        </p>
         
-        <p>Prof Dr Peter Kirsch is the Principle Investigator of the Department of Clinical Psychology 
-        at the Central Institute of Mental Health and has attained a PhD in Clinical Psychology. 
-        Dr Georgia Koppe is Principle Investigator of the research group Computational Psychiatry 
-        at the Central Institute of Mental Health and has attained a PhD in Psychology. 
-        Dr Janine Thome is a Post-doctoral scientist in the Computational Psychiatry research group 
-        at the Central Institute of Mental Health and has attained a PhD in Psychology. 
-        Mr Patrick Halli and Mr Mathieu Pinger are PhD students in the Department of Clinical Psychology 
-        at the Central Institute of Mental Health. 
+        <p align='left'> 
         Other qualified personnel from the Department of Clinical Psychology and the trans-regional 
         research collaboration may handle your data, including graduate students and research assistants. 
-        For all individuals that handle your data, regular data security seminars are mandatory.</p>
+        For all individuals that handle your data, regular data security seminars are mandatory.
+        </p>
         
         <h3>Information about data protection</h3>
-        <p>All data will be handled in accordance with the DSGVO (General Data Protection Regulation Act, 2016). 
+        <p align='left'>
+        All data will be handled in accordance with the DSGVO 
+        (General Data Protection Regulation Act, 2016). 
         The experiment is hosted on a secure internet connection (with a https certificate) and the 
         data is encrypted and stored on a secure server which is under the administration of the 
         IT department of the Central Institute of Mental Health. 
         Personal data (e.g., any communication you send us via email about the experiment) will be stored 
         separately from your research data (e.g., age, sex, gender, education, ethnicity, alcohol consumption, 
         decision-making in the tasks). You will be assigned a random participant ID and be known only by this ID. 
-        Therefore, your research data are stored anonymously. Your personal data and your research data will not 
-        be linked. The personal data that you may provide (e.g., your personal email address due to contacting 
-        us via email) will be securely and temporarily stored during any correspondence on a password 
+        Your personal data and your research data will not 
+        be linked. Therefore, your research data are stored anonymously. 
+        The personal data that you may provide (e.g., your personal email address due to contacting 
+        us via email) will be securely and temporarily stored during any correspondence on a  
         protected email account hosted at the Central Institute of Mental Health under the 
-        administration of IT. Once any correspondence is completed the correspondence alongside your 
-        email address will be deleted. Sharing data openly is good scientific practice, so your anonymized 
-        research data may later be shared with other researchers and research funding bodies via data 
-        sharing services (e.g., The Open Science Framework, The German Research Foundation (DFG), etc.). 
-        For that reason, the data will be stored indefinitely. Because you	r data are anonymous and we will 
+        administration of the IT department of the Central Institute of Mental Health. 
+        Once any correspondence is completed the correspondence alongside your 
+        email address will be deleted. We believe that sharing data openly is good scientific practice, 
+        so your anonymized research data may later be shared with other researchers and research funding 
+        bodies via data sharing services (e.g., The Open Science Framework, 
+        The German Research Foundation (DFG), etc.). 
+        For that reason, the data will be stored indefinitely. Because your data are anonymous and we will 
         not able to tell which data belongs to you, we will also not be able to 
-        delete your data if you request it.</p>
+        delete your data if you request it.
+        </p>
 
         <h3>Who is responsible for processing my personal data?</h3>
-        <p>Prof Dr Peter Kirsch is responsible for processing your data and can be contacted 
-        using the following details.</p>
+        <p align='left'>
+        Prof Dr Peter Kirsch is responsible for processing your data and can be contacted 
+        using the following details.
+        </p>
         <p>
             <b>Prof Dr Peter Kirsch</b><br>Department of Clinical Psychology<br> 
             J 5, 68159, Mannheim, Germany<br>
@@ -163,13 +210,13 @@ var consentForm = {
             Email:  <a href = "mailto: Peter.Kirsch@zi-mannheim.de" target="_blank">
                     Peter.Kirsch@zi-mannheim.de
                     </a><br>
-            Website:    <a href="https://www.zi-mannheim.de/en/research/people/person/10013.html target="_blank"">
-                        https://www.zi-mannheim.de/en/research/people/person/10013.html
-                        </a>
+            Website: <a href="https://www.zi-mannheim.de/en/research/people/person/10013.html target="_blank"">
+                    https://www.zi-mannheim.de/en/research/people/person/10013.html
+                    </a>
         </p>
         
         <h3>Who is the data protection officer and how can I contact them?</h3>
-        <p>
+        <p align='left'>
             Dr. Regina Mathes, Datenschutzbeauftragte (data protection officer)<br>
             J 5, 68159 Mannheim<br>
             E-Mail: <a href = "mailto: datenschutzbeauftragter@zi-mannheim.de" target="_blank">
@@ -178,8 +225,10 @@ var consentForm = {
         </p>
         
         <h3>Who can I contact in case of the violation of data protection laws?</h3>
-        <p>In case of the violation of data protection laws you can appeal to the federal 
-        state commissioner for data protection of the German federal state of Baden-Württemberg.</p>
+        <p align='left'>
+        In case of the violation of data protection laws you can appeal to the federal 
+        state commissioner for data protection of the German federal state of Baden-Württemberg.
+        </p>
         <p>
             Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg<br>
             Postfach 10 29 32, 70025 Stuttgart<br>
@@ -192,39 +241,24 @@ var consentForm = {
                         </a>
         </p>
 
-        <h3>What are the alternatives to participating in this study?</h3>
-        <p>The alternatives to participation in this study are not participating in 
-        this experiment or participating in alternative experiments which are available.</p>
-
-        <h3>What benefits can be reasonably expected?</h3>
-        <p>Other than the compensation you receive, there is no direct benefit to you from 
-        participating this study. However, you are contributing to scientific progress and 
-        society may benefit from the knowledge that is acquired in this experiment.</p>
-
         <h3>Can you choose to not participate or withdraw from 
         the study without penalty or loss of benefits?</h3>
-        <p>Participation in research is entirely voluntary. You may refuse to participate or withdraw.
+        <p align='left'>
+        Participation in research is entirely voluntary. You may refuse to participate or withdraw.
         If you decide that you no longer wish to continue in this study, simply close the 
-        tab in your web browser in which the experiment is open in or close your browser.</p>
-
-        <h3>Can you be withdrawn from the study without your consent?</h3>
-        <p>You may be withdrawn from the study if you do not follow the instructions given. 
-        You will be removed from this experiment if you do not finish.</p>
-
-        <h3>Will you be compensated for participating in this study?</h3>
-        <p>In compensation for your time, you will receive £6.50 per hour via Prolific 
-        once you have completed the experiment.</p>
-                        
-        <h3>Are there any costs associated with participating in this study?</h3>
-        <p>There will be no cost to you for participating in this study.</p>
-
+        tab in your web browser in which the experiment is open in or close your browser.
+        Your data will be removed from this experiment if you do not finish.
+        </p>
+    
         <h3>Who can you contact if you have questions?</h3>
-        <p>Mr Mathieu Pinger can explain this study to you in further detail 
+        <p align='left'>
+        Mr Mathieu Pinger can explain this study to you in further detail 
         and can answer your questions if required. If you have other questions or 
         research-related problems, you may reach Mr Mathieu Pinger at
             <a href = "mailto: Mathieu.Pinger@zi-mannheim.de." target="_blank">
             Mathieu.Pinger@zi-mannheim.de.
-            </a></p>
+            </a>
+        </p>
     </div>`,
     
     html:
@@ -328,8 +362,10 @@ jsPsych.init({
 // display alert when open questions are indicated
 function questionAlert(val) {
     if (val == "No") {
-        alert('If you do have questions and would still like to participate please contact Dr Morgan via email at david.morgan@zi-mannheim.de before continuing and close ' + 
-              'the web page. If you do not have any questions please click the "I did not have any questions" option');
+        alert(`If you do have questions and would still like to participate please contact 
+        Mr Pinger via email at mathieu.pinger@zi-mannheim.de before continuing and close 
+        the web page. If you do not have any questions please click the "I did not have any 
+        questions" option`);
     } 
 }
 
